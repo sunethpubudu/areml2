@@ -1,19 +1,21 @@
 grammar AREML;
-areml : '{' recognition action? thing? person? connection? property? '}' ;      //Object? Person? Connection? Property?   ;
+areml : '{' recognition ',' (action)*(',')? (thing)*(',')? (person)*(',')? (connection)*(',')? (property)* '}' ;      //Object? Person? Connection? Property?   ;
 
-recognition    :   STRING '={' pair (',' pair)* '}'(',')? ; // empty object
-action   :  STRING'={'STRING'={'pair (',' pair)* '},' STRING'={' pair (',' pair)* '}'? '}' (',')?    ;
-thing    :   STRING'={'STRING'={'pair (',' pair)*'},' STRING'={' pair (',' pair)* '}' ? '}' (',')?;// empty object
-person    :   STRING '={' pair (',' pair)* '}'(',')?  ; // empty object
-connection    :   STRING '={' pair (',' pair)*'}' (',')?  (',')? ; // empty object
-property    :   STRING '={'pair (',' pair)* '}'(',')?  ; // empty object
+recognition    :   STRING '={' pair (',' pair)* '}' ; // empty object
+action   :  STRING'={'sub (',' sub )* '}' ;// empty object
+thing   :  STRING'={'sub (',' sub )* '}' ;// empty object
+person    :   STRING'('STRING')' '={' pair (',' pair)* '}'  ; // empty object
+connection    :   STRING '={' pair (',' pair)*'}'; // empty object
+property    :   STRING '={' sub '}'*  ; // empty object
 
+sub : STRING NUMBER '={' pair (',' pair)*'}';
+pair:   STRING '=' value* ;
+value    :   STRING    |   NUMBER(':'NUMBER)*  ;// recursion
 
-pair:   STRING ':' value ;
-value    :   STRING    |   NUMBER  ;// recursion
+STRING: ('a'..'z'|'A'..'Z')+| '\\'["\\/bfnrt];
 
-STRING :  '"' (ESC | ~["\\])* '"' ;
-Attributes : STRING;
+//STRING :   (ESC | ~["\\])* ;
+
 fragment ESC :   '\\' (["\\/bfnrt] | UNICODE) ;
 fragment UNICODE : 'u' HEX HEX HEX HEX ;
 fragment HEX : [0-9a-fA-F] ;
@@ -26,4 +28,4 @@ NUMBER
 fragment INT :   '0' | [1-9] [0-9]* ; // no leading zeros
 fragment EXP :   [Ee] [+\-]? INT ; // \- since - means "range" inside [...]
 
-WS  :   [ \t\n\r]+ -> skip ;
+WS  :   [ \n\r]+ -> skip ;

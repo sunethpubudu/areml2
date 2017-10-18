@@ -77,6 +77,16 @@ public interface AREMLListener extends ParseTreeListener {
 	 */
 	void exitProperty(AREMLParser.PropertyContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link AREMLParser#sub}.
+	 * @param ctx the parse tree
+	 */
+	void enterSub(AREMLParser.SubContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AREMLParser#sub}.
+	 * @param ctx the parse tree
+	 */
+	void exitSub(AREMLParser.SubContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link AREMLParser#pair}.
 	 * @param ctx the parse tree
 	 */
