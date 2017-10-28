@@ -25,7 +25,7 @@ public class readInputData extends AREMLBaseListener {
         LinkedHashMap Connection;
         LinkedHashMap Property;
 
-        String file = "111.xml";
+        String file = "./template/eat_meat.xml";
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
@@ -49,7 +49,7 @@ public class readInputData extends AREMLBaseListener {
         if(!propertyPart.isEmpty()) {
             PropertyPart = getPropertyPart(doc, xpath, "PropertyPart", "TimeStamp");
             All.put("Property Part", PropertyPart);
-            System.out.println(All);
+           // System.out.println(All);
         }else{
             System.out.println("Property part is missing.");
         }
@@ -126,7 +126,7 @@ public class readInputData extends AREMLBaseListener {
                     LinkedHashMap<String, String> propertyValues = new LinkedHashMap<String, String>();
                     XPathExpression object = xpath.compile("/ADOXML/MODELS/MODEL/INSTANCE[@class='Object']/@name");
                     NodeList owner = (NodeList) object.evaluate(doc, XPathConstants.NODESET);
-                    System.out.println(owner.getLength());
+                  //  System.out.println(owner.getLength());
                     if(owner.getLength()>0) {
                         String Object = (String) object.evaluate(doc, XPathConstants.STRING);
                         propertyValues.put("Owner", Object);
