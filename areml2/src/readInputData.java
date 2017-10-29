@@ -14,8 +14,9 @@ import java.util.*;
  */
 public class readInputData extends AREMLBaseListener {
 
-    public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException, XPathExpressionException, TransformerException {
+   // public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException, XPathExpressionException, TransformerException {
 
+    public void readdata(String File)throws IOException, SAXException, ParserConfigurationException, XPathExpressionException, TransformerException {
         LinkedHashMap All = new LinkedHashMap();
         String Recognition;
         LinkedHashMap PropertyPart;
@@ -25,8 +26,9 @@ public class readInputData extends AREMLBaseListener {
         LinkedHashMap Connection;
         LinkedHashMap Property;
 
-        String file = "./template/eat_meat.xml";
+       // String file = "./template/eat_meat.xml";
 
+        String file = File;
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
         DocumentBuilder builder;

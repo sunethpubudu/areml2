@@ -1,96 +1,94 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE ADOXML SYSTEM "adoxml31.dtd">
-<ADOXML version="3.1" date="28.10.2017" time="17:22" database="hbms" username="areml" adoversion="Version 5.1">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ADOXML adoversion="Version 5.1" database="hbms" date="28.10.2017" time="17:22" username="areml" version="3.1">
 <MODELS>
-<MODEL id="mod.47817" name="Recognition - descend_stairs" version="" modeltype="Recognition" libtype="bp" applib="AREML 1.0 Dynamic Tutorial Library 72">
+<MODEL applib="AREML 1.0 Dynamic Tutorial Library 72" id="mod.47817" libtype="bp" modeltype="Recognition" name="Recognition - descend_stairs" version="">
 <MODELATTRIBUTES>
-<ATTRIBUTE name="Version number" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Version number" type="STRING"/>
 <ATTRIBUTE name="Author" type="STRING">areml</ATTRIBUTE>
 <ATTRIBUTE name="Creation date" type="STRING">28.10.2017, 00:29</ATTRIBUTE>
 <ATTRIBUTE name="Date last changed" type="STRING">28.10.2017, 00:32:08</ATTRIBUTE>
 <ATTRIBUTE name="Last user" type="STRING">areml</ATTRIBUTE>
-<ATTRIBUTE name="Keywords" type="STRING"></ATTRIBUTE>
-<ATTRIBUTE name="Comment" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Keywords" type="STRING"/>
+<ATTRIBUTE name="Comment" type="STRING"/>
 <ATTRIBUTE name="Model type" type="ENUMERATION">Current model</ATTRIBUTE>
 <ATTRIBUTE name="State" type="ENUMERATION">In process</ATTRIBUTE>
-<ATTRIBUTE name="Reviewed on" type="STRING"></ATTRIBUTE>
-<ATTRIBUTE name="Reviewed by" type="STRING"></ATTRIBUTE>
-<ATTRIBUTE name="Description" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Reviewed on" type="STRING"/>
+<ATTRIBUTE name="Reviewed by" type="STRING"/>
+<ATTRIBUTE name="Description" type="STRING"/>
 <ATTRIBUTE name="Number of objects and relations" type="INTEGER">9</ATTRIBUTE>
 <ATTRIBUTE name="World area" type="STRING">w:20.01cm h:26.36cm minw:5cm minh:5cm</ATTRIBUTE>
-<ATTRIBUTE name="Grid" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Grid" type="STRING"/>
 <ATTRIBUTE name="Zoom" type="INTEGER">100</ATTRIBUTE>
 <ATTRIBUTE name="Viewable area" type="STRING">VIEW representation:graphic
 GRAPHIC x:-16 y:-16 w:1120 h:719 scale:1
 TABLE
 </ATTRIBUTE>
-<ATTRIBUTE name="Current mode" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Current mode" type="STRING"/>
 <ATTRIBUTE name="Base name" type="STRING">Recognition - descend_stairs</ATTRIBUTE>
 <ATTRIBUTE name="Access state" type="ENUMERATION">write</ATTRIBUTE>
-<ATTRIBUTE name="Current page layout" type="STRING"></ATTRIBUTE>
-<ATTRIBUTE name="Connector marks" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Current page layout" type="STRING"/>
+<ATTRIBUTE name="Connector marks" type="STRING"/>
 <ATTRIBUTE name="Type" type="STRING">Recognition</ATTRIBUTE>
 <ATTRIBUTE name="Change counter" type="INTEGER">115</ATTRIBUTE>
 <ATTRIBUTE name="Font size" type="INTEGER">0</ATTRIBUTE>
-<ATTRIBUTE name="Context of version" type="STRING"></ATTRIBUTE>
-<ATTRIBUTE name="Position" type="STRING"></ATTRIBUTE>
-<ATTRIBUTE name="External tool coupling" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Context of version" type="STRING"/>
+<ATTRIBUTE name="Position" type="STRING"/>
+<ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Configuration_Workspace_AttrRep" type="STRING">NOTEBOOK
-CHAPTER &quot;Technical&quot;
-            ATTR &quot;Java Executable Path&quot;
-            ATTR &quot;HBMS Root Directory&quot;
+CHAPTER "Technical"
+            ATTR "Java Executable Path"
+            ATTR "HBMS Root Directory"
 </ATTRIBUTE>
 <ATTRIBUTE name="Java Executable Path" type="STRING">d:\java\jdk8\bin</ATTRIBUTE>
 <ATTRIBUTE name="HBMS Root Directory" type="STRING">c:\hbms-kernel-0.3.3</ATTRIBUTE>
-<ATTRIBUTE name="__GfxThumb__" type="LONGSTRING"></ATTRIBUTE>
+<ATTRIBUTE name="__GfxThumb__" type="LONGSTRING"/>
 </MODELATTRIBUTES>
-<INSTANCE id="obj.47818" class="Recognition" name="descend_stairs">
+<INSTANCE class="Recognition" id="obj.47818" name="descend_stairs">
 <ATTRIBUTE name="Position" type="STRING">NODE x:11.5cm y:4.5cm w:11cm h:2.5cm index:1</ATTRIBUTE>
-<ATTRIBUTE name="External tool coupling" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
-<ATTRIBUTE name="TimeStamp" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="TimeStamp" type="STRING"/>
 </INSTANCE>
-<INSTANCE id="obj.47821" class="ActionPart" name="ActionPart-46896">
+<INSTANCE class="ActionPart" id="obj.47821" name="ActionPart-46896">
 <ATTRIBUTE name="Position" type="STRING">NODE x:8cm y:5cm w:3cm h:1cm index:2</ATTRIBUTE>
-<ATTRIBUTE name="External tool coupling" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
 </INSTANCE>
-<INSTANCE id="obj.47824" class="PropertyPart" name="PropertyPart-46899">
+<INSTANCE class="PropertyPart" id="obj.47824" name="PropertyPart-46899">
 <ATTRIBUTE name="Position" type="STRING">NODE x:15cm y:5cm w:3cm h:1cm index:3</ATTRIBUTE>
-<ATTRIBUTE name="External tool coupling" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
-<ATTRIBUTE name="TimeStamp" type="STRING">20:20:20</ATTRIBUTE>
+<ATTRIBUTE name="TimeStamp" type="STRING">2011:03:29:16:17:18</ATTRIBUTE>
 </INSTANCE>
-<INSTANCE id="obj.47827" class="Action" name="descending">
+<INSTANCE class="Action" id="obj.47827" name="descending">
 <ATTRIBUTE name="Position" type="STRING">NODE x:6cm y:8.5cm w:4cm h:2.8cm index:4</ATTRIBUTE>
-<ATTRIBUTE name="External tool coupling" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
-<ATTRIBUTE name="TimeStamp" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="TimeStamp" type="STRING"/>
 </INSTANCE>
-<INSTANCE id="obj.47830" class="Person" name="person who descending stairs">
+<INSTANCE class="Person" id="obj.47830" name="f1">
 <ATTRIBUTE name="Position" type="STRING">NODE x:11.5cm y:8.5cm w:4.34cm h:2.5cm index:5</ATTRIBUTE>
-<ATTRIBUTE name="External tool coupling" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Age" type="INTEGER">0</ATTRIBUTE>
 <ATTRIBUTE name="Location" type="STRING">staircase</ATTRIBUTE>
 </INSTANCE>
-<INSTANCE id="obj.47833" class="ThingPart" name="ThingPart-46909">
+<INSTANCE class="ThingPart" id="obj.47833" name="ThingPart-46909">
 <ATTRIBUTE name="Position" type="STRING">NODE x:11.5cm y:5cm w:3cm h:1cm index:7</ATTRIBUTE>
-<ATTRIBUTE name="External tool coupling" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
 </INSTANCE>
-<CONNECTOR id="con.47836" class="ActionPart-Connection">
-<FROM instance="ActionPart-46896" class="ActionPart"></FROM>
-<TO instance="descending" class="Action"></TO>
+<CONNECTOR class="ActionPart-Connection" id="con.47836">
+<FROM class="ActionPart" instance="ActionPart-46896"/>
+<TO class="Action" instance="descending"/>
 <ATTRIBUTE name="Positions" type="STRING">EDGE 0 index:6</ATTRIBUTE>
 </CONNECTOR>
-<CONNECTOR id="con.47837" class="Executing">
-<FROM instance="person who descending stairs" class="Person"></FROM>
-<TO instance="descending" class="Action"></TO>
+<CONNECTOR class="Executing" id="con.47837">
+<FROM class="Person" instance="person who descending stairs"/>
+<TO class="Action" instance="descending"/>
 <ATTRIBUTE name="Positions" type="STRING">EDGE 0 index:9</ATTRIBUTE>
 </CONNECTOR>
-<CONNECTOR id="con.47838" class="ThingPart-Connection">
-<FROM instance="ThingPart-46909" class="ThingPart"></FROM>
-<TO instance="person who descending stairs" class="Person"></TO>
+<CONNECTOR class="ThingPart-Connection" id="con.47838">
+<FROM class="ThingPart" instance="ThingPart-46909"/>
+<TO class="Person" instance="person who descending stairs"/>
 <ATTRIBUTE name="Positions" type="STRING">EDGE 0 index:8</ATTRIBUTE>
 </CONNECTOR>
 </MODEL>
