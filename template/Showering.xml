@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ADOXML adoversion="Version 5.1" database="hbms" date="14.11.2017" time="15:23" username="areml" version="3.1">
+<MODELS>
+<MODEL applib="AREML 1.0 Dynamic Tutorial Library 72" id="mod.48259" libtype="bp" modeltype="Recognition" name="Recognition - showering" version="">
+<MODELATTRIBUTES>
+<ATTRIBUTE name="Version number" type="STRING"/>
+<ATTRIBUTE name="Author" type="STRING">areml</ATTRIBUTE>
+<ATTRIBUTE name="Creation date" type="STRING">14.11.2017, 14:32</ATTRIBUTE>
+<ATTRIBUTE name="Date last changed" type="STRING">14.11.2017, 15:01:23</ATTRIBUTE>
+<ATTRIBUTE name="Last user" type="STRING">areml</ATTRIBUTE>
+<ATTRIBUTE name="Keywords" type="STRING"/>
+<ATTRIBUTE name="Comment" type="STRING"/>
+<ATTRIBUTE name="Model type" type="ENUMERATION">Current model</ATTRIBUTE>
+<ATTRIBUTE name="State" type="ENUMERATION">In process</ATTRIBUTE>
+<ATTRIBUTE name="Reviewed on" type="STRING"/>
+<ATTRIBUTE name="Reviewed by" type="STRING"/>
+<ATTRIBUTE name="Description" type="STRING"/>
+<ATTRIBUTE name="Number of objects and relations" type="INTEGER">9</ATTRIBUTE>
+<ATTRIBUTE name="World area" type="STRING">w:20.01cm h:26.36cm minw:5cm minh:5cm</ATTRIBUTE>
+<ATTRIBUTE name="Grid" type="STRING"/>
+<ATTRIBUTE name="Zoom" type="INTEGER">100</ATTRIBUTE>
+<ATTRIBUTE name="Viewable area" type="STRING">VIEW representation:graphic
+GRAPHIC x:-16 y:-16 w:1041 h:719 scale:1
+TABLE
+</ATTRIBUTE>
+<ATTRIBUTE name="Current mode" type="STRING"/>
+<ATTRIBUTE name="Base name" type="STRING">Recognition - showering</ATTRIBUTE>
+<ATTRIBUTE name="Access state" type="ENUMERATION">write</ATTRIBUTE>
+<ATTRIBUTE name="Current page layout" type="STRING"/>
+<ATTRIBUTE name="Connector marks" type="STRING"/>
+<ATTRIBUTE name="Type" type="STRING">Recognition</ATTRIBUTE>
+<ATTRIBUTE name="Change counter" type="INTEGER">72</ATTRIBUTE>
+<ATTRIBUTE name="Font size" type="INTEGER">0</ATTRIBUTE>
+<ATTRIBUTE name="Context of version" type="STRING"/>
+<ATTRIBUTE name="Position" type="STRING"/>
+<ATTRIBUTE name="External tool coupling" type="STRING"/>
+<ATTRIBUTE name="Configuration_Workspace_AttrRep" type="STRING">NOTEBOOK
+CHAPTER "Technical"
+            ATTR "Java Executable Path"
+            ATTR "HBMS Root Directory"
+</ATTRIBUTE>
+<ATTRIBUTE name="Java Executable Path" type="STRING">d:\java\jdk8\bin</ATTRIBUTE>
+<ATTRIBUTE name="HBMS Root Directory" type="STRING">c:\hbms-kernel-0.3.3</ATTRIBUTE>
+<ATTRIBUTE name="__GfxThumb__" type="LONGSTRING">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</ATTRIBUTE>
+</MODELATTRIBUTES>
+<INSTANCE class="Recognition" id="obj.48261" name="Showering">
+<ATTRIBUTE name="Position" type="STRING">NODE x:10cm y:3.5cm w:12.5cm h:2.5cm index:1</ATTRIBUTE>
+<ATTRIBUTE name="External tool coupling" type="STRING"/>
+<ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
+<ATTRIBUTE name="TimeStamp" type="STRING"/>
+</INSTANCE>
+<INSTANCE class="ActionPart" id="obj.48264" name="ActionPart-48264">
+<ATTRIBUTE name="Position" type="STRING">NODE x:6cm y:4cm w:3cm h:1cm index:2</ATTRIBUTE>
+<ATTRIBUTE name="External tool coupling" type="STRING"/>
+<ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
+</INSTANCE>
+<INSTANCE class="ThingPart" id="obj.48267" name="ThingPart-48267">
+<ATTRIBUTE name="Position" type="STRING">NODE x:10cm y:4cm w:3cm h:1cm index:3</ATTRIBUTE>
+<ATTRIBUTE name="External tool coupling" type="STRING"/>
+<ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
+</INSTANCE>
+<INSTANCE class="PropertyPart" id="obj.48270" name="PropertyPart-48270">
+<ATTRIBUTE name="Position" type="STRING">NODE x:14cm y:4cm w:3cm h:1cm index:4</ATTRIBUTE>
+<ATTRIBUTE name="External tool coupling" type="STRING"/>
+<ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
+<ATTRIBUTE name="TimeStamp" type="STRING">2011:12:11:12:02:56</ATTRIBUTE>
+</INSTANCE>
+<INSTANCE class="Object" id="obj.48273" name="shower">
+<ATTRIBUTE name="Position" type="STRING">NODE x:11cm y:9cm w:4.4cm h:2.6cm index:5</ATTRIBUTE>
+<ATTRIBUTE name="External tool coupling" type="STRING"/>
+<ATTRIBUTE name="Location" type="STRING">bathroom</ATTRIBUTE>
+</INSTANCE>
+<INSTANCE class="Action" id="obj.48276" name="showering">
+<ATTRIBUTE name="Position" type="STRING">NODE x:4cm y:9cm w:4cm h:2.8cm index:6</ATTRIBUTE>
+<ATTRIBUTE name="External tool coupling" type="STRING"/>
+<ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
+<ATTRIBUTE name="TimeStamp" type="STRING"/>
+</INSTANCE>
+<CONNECTOR class="Participating" id="con.48285">
+<FROM class="Object" instance="shower"/>
+<TO class="Action" instance="showering"/>
+<ATTRIBUTE name="Positions" type="STRING">EDGE 0 index:7</ATTRIBUTE>
+</CONNECTOR>
+<CONNECTOR class="ActionPart-Connection" id="con.48286">
+<FROM class="ActionPart" instance="ActionPart-48264"/>
+<TO class="Action" instance="showering"/>
+<ATTRIBUTE name="Positions" type="STRING">EDGE 0 index:8</ATTRIBUTE>
+</CONNECTOR>
+<CONNECTOR class="ThingPart-Connection" id="con.48287">
+<FROM class="ThingPart" instance="ThingPart-48267"/>
+<TO class="Object" instance="shower"/>
+<ATTRIBUTE name="Positions" type="STRING">EDGE 0 index:9</ATTRIBUTE>
+</CONNECTOR>
+</MODEL>
+</MODELS>
+</ADOXML>
