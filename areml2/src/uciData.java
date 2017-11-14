@@ -1,5 +1,6 @@
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -8,26 +9,37 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import javax.xml.xpath.*;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 
-
 /**
- * Created by suneth on 10/27/2017.
+ * Created by suneth on 11/14/2017.
  */
-public class bsdata {
+public class uciData {
+    public static void main(String[] args) throws ParserConfigurationException, SAXException, XPathExpressionException, TransformerException {
 
-    public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, TransformerException, XPathExpressionException {
-        File folder = new File("./bsdata");
-        File[] listOfFiles = folder.listFiles();
+        BufferedReader br = null;
+        FileReader fr = null;
 
-        for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile()) {
-                String name = listOfFiles[i].getName();
-                String[] output = name.split("\\-");
+        try {
+            //br = new BufferedReader(new FileReader(FILENAME));
+            fr = new FileReader("./UCI/OrdonezA_ADLs.txt");
+            br = new BufferedReader(fr);
 
-                String filename = output[7];
+            String sCurrentLine;
+
+            while ((sCurrentLine = br.readLine()) != null) {
+                String[] data = sCurrentLine.split("\\s+");
+                String time = data[0]+":"+data[1];
+                time=time.replaceAll("-", ":");
+
+                String filename = data[4];
 
                 File templateFolder = new File("./template");
                 File[] actionFiles = templateFolder.listFiles();
@@ -47,24 +59,14 @@ public class bsdata {
                 DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
                 org.w3c.dom.Document doc = docBuilder.parse(filepath);
-                String time = output[1] + ":"+output[2]+":" +output[3]+":"+output[4]+":"+output[5]+":"+output[6];
-                String p = output[8];
-                String[] person = p.split("\\.");
-
+                String timeStamp = time;
                 XPath xpath = XPathFactory.newInstance().newXPath();
 
                 // change ELEMENTS
                 String xPathExpression = "/ADOXML/MODELS/MODEL/INSTANCE[@class='PropertyPart']/ATTRIBUTE[@name='TimeStamp']/text()";
                 NodeList nodes = (NodeList) xpath.evaluate(xPathExpression, doc, XPathConstants.NODESET);
                 for (int idx = 0; idx < nodes.getLength(); idx++) {
-                    nodes.item(idx).setTextContent(time);
-                }
-
-                // change ATTRIBUTES
-                String xPathExpressionAttr = "/ADOXML/MODELS/MODEL/INSTANCE[@class='Person']/@name";
-                NodeList nodesAttr = (NodeList) xpath.evaluate(xPathExpressionAttr, doc, XPathConstants.NODESET);
-                for(int j=0; j<nodesAttr.getLength(); j++) {
-                    nodesAttr.item(j).setTextContent(person[0]);
+                    nodes.item(idx).setTextContent(timeStamp);
                 }
 
                 // write the content into xml file
@@ -77,11 +79,17 @@ public class bsdata {
                 new readInputData().readdata(filepath);
 
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (br != null)
+                    br.close();
+                if (fr != null)
+                    fr.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
-        System.out.println("Everything replaced.");
-
-
-
-
     }
 }
