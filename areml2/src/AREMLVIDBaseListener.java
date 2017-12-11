@@ -3,6 +3,12 @@
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.xpath.XPathExpressionException;
+import java.io.IOException;
 
 /**
  * This class provides an empty implementation of {@link AREMLVIDListener},
@@ -27,7 +33,7 @@ public class AREMLVIDBaseListener implements AREMLVIDListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterConnectionType(AREMLVIDParser.ConnectionTypeContext ctx) { }
+	@Override public void enterConnectionType(AREMLVIDParser.ConnectionTypeContext ctx) throws ParserConfigurationException, TransformerException, SAXException, XPathExpressionException, IOException { }
 	/**
 	 * {@inheritDoc}
 	 *

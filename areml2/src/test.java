@@ -1,14 +1,18 @@
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.xpath.XPathExpressionException;
 import java.io.*;
 
 /**
  * Created by suneth on 12/9/2017.
  */
 public class test {
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException, ParserConfigurationException, SAXException, XPathExpressionException, TransformerException {
 
         String videoRead=null;
         String readOutside=null;
@@ -30,6 +34,7 @@ public class test {
                     if (!(noSpaceReadOutside.equals(noSpaceReadInside))) {
                         new test().testPerson(readSentence);
                         System.out.println();
+                        new addRecognition(readSentence);
                         FileWriter fw = new FileWriter("workDir/temp.txt");
                         BufferedWriter bw = new BufferedWriter(fw);
                         bw.write(readSentence);
@@ -58,7 +63,9 @@ public class test {
         return readSentence;
     }
 
-    private void testPerson(String recognition){
+    private void testPerson(String recognition) throws ParserConfigurationException, TransformerException, SAXException, XPathExpressionException, IOException {
+
+
         // Get our lexer
         AREMLVIDLexer lexer = new AREMLVIDLexer(new ANTLRInputStream(recognition));
 

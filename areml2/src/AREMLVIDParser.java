@@ -4,6 +4,12 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.xpath.XPathExpressionException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -297,7 +303,19 @@ public class AREMLVIDParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_connectionType; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AREMLVIDListener ) ((AREMLVIDListener)listener).enterConnectionType(this);
+			if ( listener instanceof AREMLVIDListener ) try {
+				((AREMLVIDListener)listener).enterConnectionType(this);
+			} catch (ParserConfigurationException e) {
+				e.printStackTrace();
+			} catch (TransformerException e) {
+				e.printStackTrace();
+			} catch (SAXException e) {
+				e.printStackTrace();
+			} catch (XPathExpressionException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {

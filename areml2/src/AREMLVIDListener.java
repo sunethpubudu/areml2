@@ -1,5 +1,11 @@
 // Generated from AREMLVID.g4 by ANTLR 4.7
 import org.antlr.v4.runtime.tree.ParseTreeListener;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.xpath.XPathExpressionException;
+import java.io.IOException;
 
 /**
  * This interface defines a complete listener for a parse tree produced by
@@ -20,7 +26,7 @@ public interface AREMLVIDListener extends ParseTreeListener {
 	 * Enter a parse tree produced by {@link AREMLVIDParser#connectionType}.
 	 * @param ctx the parse tree
 	 */
-	void enterConnectionType(AREMLVIDParser.ConnectionTypeContext ctx);
+	void enterConnectionType(AREMLVIDParser.ConnectionTypeContext ctx) throws ParserConfigurationException, TransformerException, SAXException, XPathExpressionException, IOException;
 	/**
 	 * Exit a parse tree produced by {@link AREMLVIDParser#connectionType}.
 	 * @param ctx the parse tree
