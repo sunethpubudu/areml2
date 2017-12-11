@@ -1,31 +1,13 @@
-grammar AREML;
-areml : '{' recognition ',' (action)*(',')? (thing)*(',')? (person)*(',')? (connection)*(',')? (property)* '}' ;      //Object? Person? Connection? Property?   ;
+grammar AREMLVID;
+aremlvid  :  ARTICLE person STRING? action connectionType? ARTICLE? object? |ARTICLE person STRING? action connectionType? ARTICLE? object? and? connectionType? ARTICLE? object+; // e.g.switch on the light
 
-recognition    :   STRING '={' pair (',' pair)* '}' ; // empty object
-action   :  STRING'={'sub (',' sub )* '}' ;// empty object
-thing   :  STRING'={'sub (',' sub )* '}' ;// empty object
-person    :   STRING'('STRING')' '={' pair (',' pair)* '}'  ; // empty object
-connection    :   STRING '={' pair (',' pair)*'}'; // empty object
-property    :   STRING '={' sub '}'*  ; // empty object
+ARTICLE : 'the' | 'an' | 'a' ;
+connectionType: 'on'|'in'|'under'|'next to'|'in front of'|'behind'|'with'|'into'|'in to'|'down'|'up'|'to'|'from';
 
-sub : STRING NUMBER '={' pair (',' pair)*'}';
-pair:   STRING '=' value* ;
-value    :   STRING    |   NUMBER(':'NUMBER)*  ;// recursion
+and: STRING;
+person:STRING;
+action: STRING;
+object: STRING;
 
-STRING: ('a'..'z'|'A'..'Z')+| '\\'["\\/bfnrt];
-
-//STRING :   (ESC | ~["\\])* ;
-
-fragment ESC :   '\\' (["\\/bfnrt] | UNICODE) ;
-fragment UNICODE : 'u' HEX HEX HEX HEX ;
-fragment HEX : [0-9a-fA-F] ;
-
-NUMBER
-    :   '-'? INT '.' [0-9]+ EXP? // 1.35, 1.35E-9, 0.3, -4.5
-    |   '-'? INT EXP             // 1e10 -3e4
-    |   '-'? INT                 // -3, 45
-    ;
-fragment INT :   '0' | [1-9] [0-9]* ; // no leading zeros
-fragment EXP :   [Ee] [+\-]? INT ; // \- since - means "range" inside [...]
-
-WS  :   [ \n\r]+ -> skip ;
+STRING:('a'..'z'|'A'..'Z')+;
+WS : [ \t\r\n]+ -> skip ;
