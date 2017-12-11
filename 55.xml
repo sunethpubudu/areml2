@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ADOXML SYSTEM "adoxml31.dtd">
+<ADOXML version="3.1" date="18.10.2017" time="19:59" database="hbms" username="areml" adoversion="Version 5.1">
+<MODELS>
+<MODEL id="mod.46518" name="Recognition - 5" version="" modeltype="Recognition" libtype="bp" applib="AREML 1.0 Dynamic Tutorial Library 71">
+<MODELATTRIBUTES>
+<ATTRIBUTE name="Version number" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Author" type="STRING">areml</ATTRIBUTE>
+<ATTRIBUTE name="Creation date" type="STRING">17.10.2017, 15:37</ATTRIBUTE>
+<ATTRIBUTE name="Date last changed" type="STRING">17.10.2017, 15:38:49</ATTRIBUTE>
+<ATTRIBUTE name="Last user" type="STRING">areml</ATTRIBUTE>
+<ATTRIBUTE name="Keywords" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Comment" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Model type" type="ENUMERATION">Current model</ATTRIBUTE>
+<ATTRIBUTE name="State" type="ENUMERATION">In process</ATTRIBUTE>
+<ATTRIBUTE name="Reviewed on" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Reviewed by" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Description" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Number of objects and relations" type="INTEGER">4</ATTRIBUTE>
+<ATTRIBUTE name="World area" type="STRING">w:20.01cm h:26.36cm minw:5cm minh:5cm</ATTRIBUTE>
+<ATTRIBUTE name="Grid" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Zoom" type="INTEGER">100</ATTRIBUTE>
+<ATTRIBUTE name="Viewable area" type="STRING">VIEW representation:graphic
+GRAPHIC x:-16 y:-16 w:1040 h:719 scale:1
+TABLE
+</ATTRIBUTE>
+<ATTRIBUTE name="Current mode" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Base name" type="STRING">Recognition - 5</ATTRIBUTE>
+<ATTRIBUTE name="Access state" type="ENUMERATION">write</ATTRIBUTE>
+<ATTRIBUTE name="Current page layout" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Connector marks" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Type" type="STRING">Recognition</ATTRIBUTE>
+<ATTRIBUTE name="Change counter" type="INTEGER">38</ATTRIBUTE>
+<ATTRIBUTE name="Font size" type="INTEGER">0</ATTRIBUTE>
+<ATTRIBUTE name="Context of version" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Position" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="External tool coupling" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Configuration_Workspace_AttrRep" type="STRING">NOTEBOOK
+CHAPTER &quot;Technical&quot;
+            ATTR &quot;Java Executable Path&quot;
+            ATTR &quot;HBMS Root Directory&quot;
+</ATTRIBUTE>
+<ATTRIBUTE name="Java Executable Path" type="STRING">d:\java\jdk8\bin</ATTRIBUTE>
+<ATTRIBUTE name="HBMS Root Directory" type="STRING">c:\hbms-kernel-0.3.3</ATTRIBUTE>
+<ATTRIBUTE name="__GfxThumb__" type="LONGSTRING">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</ATTRIBUTE>
+</MODELATTRIBUTES>
+<INSTANCE id="obj.46520" class="Recognition" name="Recognition:Outside Temparature">
+<ATTRIBUTE name="Position" type="STRING">NODE x:9cm y:3.5cm w:8cm h:3cm index:1</ATTRIBUTE>
+<ATTRIBUTE name="External tool coupling" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
+<ATTRIBUTE name="TimeStamp" type="STRING"></ATTRIBUTE>
+</INSTANCE>
+<INSTANCE id="obj.46523" class="PropertyPart" name="temparature">
+<ATTRIBUTE name="Position" type="STRING">NODE x:8.5cm y:4cm w:3cm h:1cm index:2</ATTRIBUTE>
+<ATTRIBUTE name="External tool coupling" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
+<ATTRIBUTE name="TimeStamp" type="STRING">20:30:30</ATTRIBUTE>
+</INSTANCE>
+<INSTANCE id="obj.46526" class="Property" name="Temparature">
+<ATTRIBUTE name="Position" type="STRING">NODE x:8.5cm y:8cm w:3cm h:1cm index:3</ATTRIBUTE>
+<ATTRIBUTE name="External tool coupling" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
+<ATTRIBUTE name="TimeStamp" type="STRING"></ATTRIBUTE>
+<ATTRIBUTE name="Status or Unit" type="STRING">degree</ATTRIBUTE>
+<ATTRIBUTE name="Value" type="STRING">12</ATTRIBUTE>
+</INSTANCE>
+<CONNECTOR id="con.46529" class="PropertyPart-Connection">
+<FROM instance="temparature" class="PropertyPart"></FROM>
+<TO instance="Temparature" class="Property"></TO>
+<ATTRIBUTE name="Positions" type="STRING">EDGE 0 index:4</ATTRIBUTE>
+</CONNECTOR>
+</MODEL>
+</MODELS>
+</ADOXML>
