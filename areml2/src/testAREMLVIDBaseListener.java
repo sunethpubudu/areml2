@@ -13,8 +13,7 @@ public class testAREMLVIDBaseListener extends AREMLVIDBaseListener  {
     private final String setText = "\033[31m";
     private final String setPlainText = "\033[0m";
     @Override
-    public void enterConnectionType(AREMLVIDParser.ConnectionTypeContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException
-     {
+    public void enterConnectionType(AREMLVIDParser.ConnectionTypeContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException {
         System.out.print(setText+"<Connection type>"+setPlainText + ctx.getText() + " ");
         if(ctx.getText()!=null) {
             new addRecognition().editConnection("connectionType", ctx.getText());
@@ -47,8 +46,7 @@ public class testAREMLVIDBaseListener extends AREMLVIDBaseListener  {
         }
     }
 
-    @Override public void enterSecondobject(AREMLVIDParser.SecondobjectContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException
-    {
+    @Override public void enterSecondobject(AREMLVIDParser.SecondobjectContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException {
         System.out.print(setText + "<SecondObject>" +setPlainText+ ctx.getText() + " ");
         if(ctx.getText()!=null) {
             new addRecognition().editSecondObject("object", ctx.getText());

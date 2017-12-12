@@ -65,7 +65,6 @@ public class test {
 
     private void testPerson(String recognition) throws ParserConfigurationException, TransformerException, SAXException, XPathExpressionException, IOException {
 
-
         // Get our lexer
         AREMLVIDLexer lexer = new AREMLVIDLexer(new ANTLRInputStream(recognition));
 

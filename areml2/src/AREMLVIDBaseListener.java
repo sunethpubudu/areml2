@@ -45,6 +45,18 @@ public class AREMLVIDBaseListener implements AREMLVIDListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterSecondconnectiontype(AREMLVIDParser.SecondconnectiontypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSecondconnectiontype(AREMLVIDParser.SecondconnectiontypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterAnd(AREMLVIDParser.AndContext ctx) { }
 	/**
 	 * {@inheritDoc}

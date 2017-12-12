@@ -33,6 +33,16 @@ public interface AREMLVIDListener extends ParseTreeListener {
 	 */
 	void exitConnectionType(AREMLVIDParser.ConnectionTypeContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link AREMLVIDParser#secondconnectiontype}.
+	 * @param ctx the parse tree
+	 */
+	void enterSecondconnectiontype(AREMLVIDParser.SecondconnectiontypeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AREMLVIDParser#secondconnectiontype}.
+	 * @param ctx the parse tree
+	 */
+	void exitSecondconnectiontype(AREMLVIDParser.SecondconnectiontypeContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link AREMLVIDParser#and}.
 	 * @param ctx the parse tree
 	 */
