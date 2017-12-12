@@ -33,7 +33,7 @@ public class AREMLVIDBaseListener implements AREMLVIDListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterConnectionType(AREMLVIDParser.ConnectionTypeContext ctx) throws ParserConfigurationException, TransformerException, SAXException, XPathExpressionException, IOException { }
+	@Override public void enterConnectionType(AREMLVIDParser.ConnectionTypeContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -57,7 +57,7 @@ public class AREMLVIDBaseListener implements AREMLVIDListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPerson(AREMLVIDParser.PersonContext ctx) { }
+	@Override public void enterPerson(AREMLVIDParser.PersonContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -69,7 +69,7 @@ public class AREMLVIDBaseListener implements AREMLVIDListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAction(AREMLVIDParser.ActionContext ctx) { }
+	@Override public void enterAction(AREMLVIDParser.ActionContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -81,13 +81,25 @@ public class AREMLVIDBaseListener implements AREMLVIDListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterObject(AREMLVIDParser.ObjectContext ctx) { }
+	@Override public void enterObject(AREMLVIDParser.ObjectContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitObject(AREMLVIDParser.ObjectContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSecondobject(AREMLVIDParser.SecondobjectContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSecondobject(AREMLVIDParser.SecondobjectContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

@@ -26,9 +26,9 @@ public class AREMLVIDParser extends Parser {
 		T__9=10, T__10=11, T__11=12, T__12=13, ARTICLE=14, STRING=15, WS=16;
 	public static final int
 		RULE_aremlvid = 0, RULE_connectionType = 1, RULE_and = 2, RULE_person = 3, 
-		RULE_action = 4, RULE_object = 5;
+		RULE_action = 4, RULE_object = 5, RULE_secondobject = 6;
 	public static final String[] ruleNames = {
-		"aremlvid", "connectionType", "and", "person", "action", "object"
+		"aremlvid", "connectionType", "and", "person", "action", "object", "secondobject"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
@@ -106,11 +106,11 @@ public class AREMLVIDParser extends Parser {
 		public ConnectionTypeContext connectionType(int i) {
 			return getRuleContext(ConnectionTypeContext.class,i);
 		}
-		public List<ObjectContext> object() {
-			return getRuleContexts(ObjectContext.class);
+		public SecondobjectContext secondobject() {
+			return getRuleContext(SecondobjectContext.class,0);
 		}
-		public ObjectContext object(int i) {
-			return getRuleContext(ObjectContext.class,i);
+		public ObjectContext object() {
+			return getRuleContext(ObjectContext.class,0);
 		}
 		public AndContext and() {
 			return getRuleContext(AndContext.class,0);
@@ -134,55 +134,55 @@ public class AREMLVIDParser extends Parser {
 		enterRule(_localctx, 0, RULE_aremlvid);
 		int _la;
 		try {
-			setState(56);
+			setState(55);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(12);
+				setState(14);
 				match(ARTICLE);
-				setState(13);
-				person();
 				setState(15);
+				person();
+				setState(17);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
 				case 1:
 					{
-					setState(14);
+					setState(16);
 					match(STRING);
 					}
 					break;
 				}
-				setState(17);
-				action();
 				setState(19);
+				action();
+				setState(21);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << T__5) | (1L << T__6) | (1L << T__7) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__12))) != 0)) {
 					{
-					setState(18);
+					setState(20);
 					connectionType();
 					}
 				}
 
-				setState(22);
+				setState(24);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==ARTICLE) {
 					{
-					setState(21);
+					setState(23);
 					match(ARTICLE);
 					}
 				}
 
-				setState(25);
+				setState(27);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==STRING) {
 					{
-					setState(24);
-					object();
+					setState(26);
+					secondobject();
 					}
 				}
 
@@ -191,96 +191,84 @@ public class AREMLVIDParser extends Parser {
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(27);
+				setState(29);
 				match(ARTICLE);
-				setState(28);
-				person();
 				setState(30);
+				person();
+				setState(32);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 				case 1:
 					{
-					setState(29);
+					setState(31);
 					match(STRING);
 					}
 					break;
 				}
-				setState(32);
-				action();
 				setState(34);
+				action();
+				setState(36);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
 				case 1:
 					{
-					setState(33);
+					setState(35);
 					connectionType();
 					}
 					break;
 				}
-				setState(37);
+				setState(39);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 				case 1:
 					{
-					setState(36);
+					setState(38);
 					match(ARTICLE);
 					}
 					break;
 				}
-				setState(40);
+				setState(42);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
 				case 1:
 					{
-					setState(39);
+					setState(41);
 					object();
 					}
 					break;
 				}
-				setState(43);
+				setState(45);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
 				case 1:
 					{
-					setState(42);
+					setState(44);
 					and();
 					}
 					break;
 				}
-				setState(46);
+				setState(48);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << T__5) | (1L << T__6) | (1L << T__7) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__12))) != 0)) {
 					{
-					setState(45);
+					setState(47);
 					connectionType();
 					}
 				}
 
-				setState(49);
+				setState(51);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==ARTICLE) {
 					{
-					setState(48);
+					setState(50);
 					match(ARTICLE);
 					}
 				}
 
-				setState(52); 
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				do {
-					{
-					{
-					setState(51);
-					object();
-					}
-					}
-					setState(54); 
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				} while ( _la==STRING );
+				setState(53);
+				secondobject();
 				}
 				break;
 			}
@@ -307,13 +295,13 @@ public class AREMLVIDParser extends Parser {
 				((AREMLVIDListener)listener).enterConnectionType(this);
 			} catch (ParserConfigurationException e) {
 				e.printStackTrace();
-			} catch (TransformerException e) {
+			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (SAXException e) {
 				e.printStackTrace();
 			} catch (XPathExpressionException e) {
 				e.printStackTrace();
-			} catch (IOException e) {
+			} catch (TransformerException e) {
 				e.printStackTrace();
 			}
 		}
@@ -330,7 +318,7 @@ public class AREMLVIDParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(58);
+			setState(57);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << T__5) | (1L << T__6) | (1L << T__7) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__12))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -375,7 +363,7 @@ public class AREMLVIDParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(60);
+			setState(59);
 			match(STRING);
 			}
 		}
@@ -398,7 +386,19 @@ public class AREMLVIDParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_person; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AREMLVIDListener ) ((AREMLVIDListener)listener).enterPerson(this);
+			if ( listener instanceof AREMLVIDListener ) try {
+				((AREMLVIDListener)listener).enterPerson(this);
+			} catch (ParserConfigurationException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (SAXException e) {
+				e.printStackTrace();
+			} catch (XPathExpressionException e) {
+				e.printStackTrace();
+			} catch (TransformerException e) {
+				e.printStackTrace();
+			}
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
@@ -412,7 +412,7 @@ public class AREMLVIDParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(62);
+			setState(61);
 			match(STRING);
 			}
 		}
@@ -435,7 +435,19 @@ public class AREMLVIDParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_action; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AREMLVIDListener ) ((AREMLVIDListener)listener).enterAction(this);
+			if ( listener instanceof AREMLVIDListener ) try {
+				((AREMLVIDListener)listener).enterAction(this);
+			} catch (ParserConfigurationException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (SAXException e) {
+				e.printStackTrace();
+			} catch (XPathExpressionException e) {
+				e.printStackTrace();
+			} catch (TransformerException e) {
+				e.printStackTrace();
+			}
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
@@ -449,7 +461,7 @@ public class AREMLVIDParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(64);
+			setState(63);
 			match(STRING);
 			}
 		}
@@ -472,7 +484,19 @@ public class AREMLVIDParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_object; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AREMLVIDListener ) ((AREMLVIDListener)listener).enterObject(this);
+			if ( listener instanceof AREMLVIDListener ) try {
+				((AREMLVIDListener)listener).enterObject(this);
+			} catch (ParserConfigurationException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (SAXException e) {
+				e.printStackTrace();
+			} catch (XPathExpressionException e) {
+				e.printStackTrace();
+			} catch (TransformerException e) {
+				e.printStackTrace();
+			}
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
@@ -486,7 +510,56 @@ public class AREMLVIDParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(66);
+			setState(65);
+			match(STRING);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class SecondobjectContext extends ParserRuleContext {
+		public TerminalNode STRING() { return getToken(AREMLVIDParser.STRING, 0); }
+		public SecondobjectContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_secondobject; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AREMLVIDListener ) try {
+				((AREMLVIDListener)listener).enterSecondobject(this);
+			} catch (ParserConfigurationException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (SAXException e) {
+				e.printStackTrace();
+			} catch (XPathExpressionException e) {
+				e.printStackTrace();
+			} catch (TransformerException e) {
+				e.printStackTrace();
+			}
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AREMLVIDListener ) ((AREMLVIDListener)listener).exitSecondobject(this);
+		}
+	}
+
+	public final SecondobjectContext secondobject() throws RecognitionException {
+		SecondobjectContext _localctx = new SecondobjectContext(_ctx, getState());
+		enterRule(_localctx, 12, RULE_secondobject);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(67);
 			match(STRING);
 			}
 		}
@@ -502,26 +575,26 @@ public class AREMLVIDParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\22G\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2\3\2\3\2\5\2\22\n\2\3\2\3\2\5\2"+
-		"\26\n\2\3\2\5\2\31\n\2\3\2\5\2\34\n\2\3\2\3\2\3\2\5\2!\n\2\3\2\3\2\5\2"+
-		"%\n\2\3\2\5\2(\n\2\3\2\5\2+\n\2\3\2\5\2.\n\2\3\2\5\2\61\n\2\3\2\5\2\64"+
-		"\n\2\3\2\6\2\67\n\2\r\2\16\28\5\2;\n\2\3\3\3\3\3\4\3\4\3\5\3\5\3\6\3\6"+
-		"\3\7\3\7\3\7\2\2\b\2\4\6\b\n\f\2\3\3\2\3\17\2M\2:\3\2\2\2\4<\3\2\2\2\6"+
-		">\3\2\2\2\b@\3\2\2\2\nB\3\2\2\2\fD\3\2\2\2\16\17\7\20\2\2\17\21\5\b\5"+
-		"\2\20\22\7\21\2\2\21\20\3\2\2\2\21\22\3\2\2\2\22\23\3\2\2\2\23\25\5\n"+
-		"\6\2\24\26\5\4\3\2\25\24\3\2\2\2\25\26\3\2\2\2\26\30\3\2\2\2\27\31\7\20"+
-		"\2\2\30\27\3\2\2\2\30\31\3\2\2\2\31\33\3\2\2\2\32\34\5\f\7\2\33\32\3\2"+
-		"\2\2\33\34\3\2\2\2\34;\3\2\2\2\35\36\7\20\2\2\36 \5\b\5\2\37!\7\21\2\2"+
-		" \37\3\2\2\2 !\3\2\2\2!\"\3\2\2\2\"$\5\n\6\2#%\5\4\3\2$#\3\2\2\2$%\3\2"+
-		"\2\2%\'\3\2\2\2&(\7\20\2\2\'&\3\2\2\2\'(\3\2\2\2(*\3\2\2\2)+\5\f\7\2*"+
-		")\3\2\2\2*+\3\2\2\2+-\3\2\2\2,.\5\6\4\2-,\3\2\2\2-.\3\2\2\2.\60\3\2\2"+
-		"\2/\61\5\4\3\2\60/\3\2\2\2\60\61\3\2\2\2\61\63\3\2\2\2\62\64\7\20\2\2"+
-		"\63\62\3\2\2\2\63\64\3\2\2\2\64\66\3\2\2\2\65\67\5\f\7\2\66\65\3\2\2\2"+
-		"\678\3\2\2\28\66\3\2\2\289\3\2\2\29;\3\2\2\2:\16\3\2\2\2:\35\3\2\2\2;"+
-		"\3\3\2\2\2<=\t\2\2\2=\5\3\2\2\2>?\7\21\2\2?\7\3\2\2\2@A\7\21\2\2A\t\3"+
-		"\2\2\2BC\7\21\2\2C\13\3\2\2\2DE\7\21\2\2E\r\3\2\2\2\17\21\25\30\33 $\'"+
-		"*-\60\638:";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\22H\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\3\2\3\2\5\2\24\n\2\3\2"+
+		"\3\2\5\2\30\n\2\3\2\5\2\33\n\2\3\2\5\2\36\n\2\3\2\3\2\3\2\5\2#\n\2\3\2"+
+		"\3\2\5\2\'\n\2\3\2\5\2*\n\2\3\2\5\2-\n\2\3\2\5\2\60\n\2\3\2\5\2\63\n\2"+
+		"\3\2\5\2\66\n\2\3\2\3\2\5\2:\n\2\3\3\3\3\3\4\3\4\3\5\3\5\3\6\3\6\3\7\3"+
+		"\7\3\b\3\b\3\b\2\2\t\2\4\6\b\n\f\16\2\3\3\2\3\17\2L\29\3\2\2\2\4;\3\2"+
+		"\2\2\6=\3\2\2\2\b?\3\2\2\2\nA\3\2\2\2\fC\3\2\2\2\16E\3\2\2\2\20\21\7\20"+
+		"\2\2\21\23\5\b\5\2\22\24\7\21\2\2\23\22\3\2\2\2\23\24\3\2\2\2\24\25\3"+
+		"\2\2\2\25\27\5\n\6\2\26\30\5\4\3\2\27\26\3\2\2\2\27\30\3\2\2\2\30\32\3"+
+		"\2\2\2\31\33\7\20\2\2\32\31\3\2\2\2\32\33\3\2\2\2\33\35\3\2\2\2\34\36"+
+		"\5\16\b\2\35\34\3\2\2\2\35\36\3\2\2\2\36:\3\2\2\2\37 \7\20\2\2 \"\5\b"+
+		"\5\2!#\7\21\2\2\"!\3\2\2\2\"#\3\2\2\2#$\3\2\2\2$&\5\n\6\2%\'\5\4\3\2&"+
+		"%\3\2\2\2&\'\3\2\2\2\')\3\2\2\2(*\7\20\2\2)(\3\2\2\2)*\3\2\2\2*,\3\2\2"+
+		"\2+-\5\f\7\2,+\3\2\2\2,-\3\2\2\2-/\3\2\2\2.\60\5\6\4\2/.\3\2\2\2/\60\3"+
+		"\2\2\2\60\62\3\2\2\2\61\63\5\4\3\2\62\61\3\2\2\2\62\63\3\2\2\2\63\65\3"+
+		"\2\2\2\64\66\7\20\2\2\65\64\3\2\2\2\65\66\3\2\2\2\66\67\3\2\2\2\678\5"+
+		"\16\b\28:\3\2\2\29\20\3\2\2\29\37\3\2\2\2:\3\3\2\2\2;<\t\2\2\2<\5\3\2"+
+		"\2\2=>\7\21\2\2>\7\3\2\2\2?@\7\21\2\2@\t\3\2\2\2AB\7\21\2\2B\13\3\2\2"+
+		"\2CD\7\21\2\2D\r\3\2\2\2EF\7\21\2\2F\17\3\2\2\2\16\23\27\32\35\"&),/\62"+
+		"\659";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

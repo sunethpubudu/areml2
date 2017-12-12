@@ -26,7 +26,7 @@ public interface AREMLVIDListener extends ParseTreeListener {
 	 * Enter a parse tree produced by {@link AREMLVIDParser#connectionType}.
 	 * @param ctx the parse tree
 	 */
-	void enterConnectionType(AREMLVIDParser.ConnectionTypeContext ctx) throws ParserConfigurationException, TransformerException, SAXException, XPathExpressionException, IOException;
+	void enterConnectionType(AREMLVIDParser.ConnectionTypeContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException;
 	/**
 	 * Exit a parse tree produced by {@link AREMLVIDParser#connectionType}.
 	 * @param ctx the parse tree
@@ -46,7 +46,7 @@ public interface AREMLVIDListener extends ParseTreeListener {
 	 * Enter a parse tree produced by {@link AREMLVIDParser#person}.
 	 * @param ctx the parse tree
 	 */
-	void enterPerson(AREMLVIDParser.PersonContext ctx);
+	void enterPerson(AREMLVIDParser.PersonContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException;
 	/**
 	 * Exit a parse tree produced by {@link AREMLVIDParser#person}.
 	 * @param ctx the parse tree
@@ -56,7 +56,7 @@ public interface AREMLVIDListener extends ParseTreeListener {
 	 * Enter a parse tree produced by {@link AREMLVIDParser#action}.
 	 * @param ctx the parse tree
 	 */
-	void enterAction(AREMLVIDParser.ActionContext ctx);
+	void enterAction(AREMLVIDParser.ActionContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException;
 	/**
 	 * Exit a parse tree produced by {@link AREMLVIDParser#action}.
 	 * @param ctx the parse tree
@@ -66,10 +66,20 @@ public interface AREMLVIDListener extends ParseTreeListener {
 	 * Enter a parse tree produced by {@link AREMLVIDParser#object}.
 	 * @param ctx the parse tree
 	 */
-	void enterObject(AREMLVIDParser.ObjectContext ctx);
+	void enterObject(AREMLVIDParser.ObjectContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException;
 	/**
 	 * Exit a parse tree produced by {@link AREMLVIDParser#object}.
 	 * @param ctx the parse tree
 	 */
 	void exitObject(AREMLVIDParser.ObjectContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AREMLVIDParser#secondobject}.
+	 * @param ctx the parse tree
+	 */
+	void enterSecondobject(AREMLVIDParser.SecondobjectContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException;
+	/**
+	 * Exit a parse tree produced by {@link AREMLVIDParser#secondobject}.
+	 * @param ctx the parse tree
+	 */
+	void exitSecondobject(AREMLVIDParser.SecondobjectContext ctx);
 }
