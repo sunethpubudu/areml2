@@ -23,6 +23,16 @@ public interface AREMLVIDListener extends ParseTreeListener {
 	 */
 	void exitAremlvid(AREMLVIDParser.AremlvidContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link AREMLVIDParser#verb}.
+	 * @param ctx the parse tree
+	 */
+	void enterVerb(AREMLVIDParser.VerbContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AREMLVIDParser#verb}.
+	 * @param ctx the parse tree
+	 */
+	void exitVerb(AREMLVIDParser.VerbContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link AREMLVIDParser#connectionType}.
 	 * @param ctx the parse tree
 	 */
@@ -42,6 +52,16 @@ public interface AREMLVIDListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitSecondconnectiontype(AREMLVIDParser.SecondconnectiontypeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AREMLVIDParser#gender}.
+	 * @param ctx the parse tree
+	 */
+	void enterGender(AREMLVIDParser.GenderContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AREMLVIDParser#gender}.
+	 * @param ctx the parse tree
+	 */
+	void exitGender(AREMLVIDParser.GenderContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AREMLVIDParser#and}.
 	 * @param ctx the parse tree

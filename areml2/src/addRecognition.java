@@ -176,6 +176,12 @@ public class addRecognition {
         NodeList CallingValue = (NodeList) exprCalling.evaluate(doc, XPathConstants.NODESET);
         CallingValue.item(0).setTextContent(context);
 
+        // change from
+        String xPathfrom = "/ADOXML/MODELS/MODEL/CONNECTOR[@class='from']/FROM/@instance";
+        XPathExpression exprfrom = xpath.compile(xPathfrom);
+        NodeList fromValue = (NodeList) exprfrom.evaluate(doc, XPathConstants.NODESET);
+        fromValue.item(0).setTextContent(context);
+
         // write the content into xml file
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
@@ -205,16 +211,22 @@ public class addRecognition {
         ThingPartConnValue.item(1).setTextContent(context);
 
         // change Calling
-        String xPathCalling = "/ADOXML/MODELS/MODEL/CONNECTOR[@class='Calling']/TO/@instance";
-        XPathExpression exprCalling = xpath.compile(xPathCalling);
-        NodeList CallingValue = (NodeList) exprCalling.evaluate(doc, XPathConstants.NODESET);
-        CallingValue.item(0).setTextContent(context);
+//        String xPathCalling = "/ADOXML/MODELS/MODEL/CONNECTOR[@class='Calling']/TO/@instance";
+//        XPathExpression exprCalling = xpath.compile(xPathCalling);
+//        NodeList CallingValue = (NodeList) exprCalling.evaluate(doc, XPathConstants.NODESET);
+//        CallingValue.item(0).setTextContent(context);
 
         // change Participating
         String xPathParticipating = "/ADOXML/MODELS/MODEL/CONNECTOR[@class='Participating']/FROM/@instance";
         XPathExpression exprParticipating = xpath.compile(xPathParticipating);
         NodeList ParticipatingValue = (NodeList) exprParticipating.evaluate(doc, XPathConstants.NODESET);
-        ParticipatingValue.item(0).setTextContent(context);
+        ParticipatingValue.item(1).setTextContent(context);
+
+        // change to
+        String xPathTo = "/ADOXML/MODELS/MODEL/CONNECTOR[@class='to']/TO/@instance";
+        XPathExpression exprTo = xpath.compile(xPathTo);
+        NodeList toValue = (NodeList) exprTo.evaluate(doc, XPathConstants.NODESET);
+        toValue.item(0).setTextContent(context);
 
         // write the content into xml file
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
