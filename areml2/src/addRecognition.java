@@ -1,4 +1,7 @@
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -10,7 +13,9 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.xpath.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
 import java.nio.file.Files;
+import java.util.Random;
 
 /**
  * Created by suneth on 12/11/2017.
@@ -20,22 +25,70 @@ public class addRecognition {
     String newRecogFile;
     String filepath ="./template/template.xml";
 
+//    Random id = new Random();
+//    public int  n = id.nextInt(50)*1000 + 1;
+
+    int id = idSequence.getNextValueAsString();
+
     public addRecognition() {
 
     }
 
-    public void editConnection(String connectionType, String context) throws ParserConfigurationException, XPathExpressionException, TransformerException, IOException, SAXException {
+    public void editConnection(String context) throws ParserConfigurationException, XPathExpressionException, TransformerException, IOException, SAXException {
 
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
         org.w3c.dom.Document doc = docBuilder.parse(filepath);
         XPath xpath = XPathFactory.newInstance().newXPath();
 
-        // change ATTRIBUTES
-        String xPathConnection = "/ADOXML/MODELS/MODEL/INSTANCE[@class='Connection']/@name";
-        XPathExpression exprConnection = xpath.compile(xPathConnection);
-        NodeList ConnectionValue = (NodeList) exprConnection.evaluate(doc, XPathConstants.NODESET);
-        ConnectionValue.item(0).setTextContent(context);
+        //add connectionPart
+        String xPathConnectionPt = "/ADOXML/MODELS/MODEL/CONNECTOR";
+        XPathExpression exprConnectionPt = xpath.compile(xPathConnectionPt);
+        NodeList ConnectionValue = (NodeList) exprConnectionPt.evaluate(doc, XPathConstants.NODESET);
+
+
+      //  String id = idSequence.getNextValueAsString();
+
+        String connectionPart ="<INSTANCE id=\"obj."+(id+4)+"\" class=\"ConnectionPart\" name=\"ConnectionPart-"+(id+4)+"\">\n" +
+                "<ATTRIBUTE name=\"Position\" type=\"STRING\">NODE x:14.5cm y:5cm w:3cm h:1cm index:5</ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"External tool coupling\" type=\"STRING\"></ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"Description\" type=\"INTEGER\">0</ATTRIBUTE>\n" +
+                "</INSTANCE>";
+
+        Node fragmentNode = docBuilder.parse(new InputSource(new StringReader(connectionPart)))
+                .getDocumentElement();
+        fragmentNode = doc.importNode(fragmentNode, true);
+
+        ConnectionValue.item(0).getParentNode().insertBefore(fragmentNode, ConnectionValue.item(0));
+
+        //add connection
+//        String xPathConnection = "/ADOXML/MODELS/MODEL/CONNECTOR";
+//        XPathExpression exprConnection = xpath.compile(xPathConnection);
+//        NodeList ConnectionValue = (NodeList) exprConnection.evaluate(doc, XPathConstants.NODESET);
+
+        String xmlConnection ="<INSTANCE id=\"obj."+(id+20)+"\" class=\"Connection\" name=\""+context+"\"> \n" +
+        "<ATTRIBUTE name=\"Position\" type=\"STRING\">NODE x:17cm y:12cm index:16</ATTRIBUTE> \n" +
+        "<ATTRIBUTE name=\"External tool coupling\" type=\"STRING\"></ATTRIBUTE>\n" +
+        "<ATTRIBUTE name=\"Description\" type=\"INTEGER\">0</ATTRIBUTE>\n" +
+        "</INSTANCE>";
+
+        Node fragmentNodeConn = docBuilder.parse(new InputSource(new StringReader(xmlConnection)))
+                .getDocumentElement();
+        fragmentNodeConn = doc.importNode(fragmentNodeConn, true);
+
+        ConnectionValue.item(0).getParentNode().insertBefore(fragmentNodeConn, ConnectionValue.item(0));
+
+//        // change ATTRIBUTES
+//        String xPathConnection = "/ADOXML/MODELS/MODEL/INSTANCE[@class='Connection']/@name";
+//        XPathExpression exprConnection = xpath.compile(xPathConnection);
+//        NodeList ConnectionValue = (NodeList) exprConnection.evaluate(doc, XPathConstants.NODESET);
+//        ConnectionValue.item(0).setTextContent(context);
+
+        // change ConnectionPart-Connection
+        String xPathConnPartConnID = "/ADOXML/MODELS/MODEL/CONNECTOR[@class='ConnectionPart-Connection']/FROM/@instance";
+        XPathExpression exprConnPartConnID = xpath.compile(xPathConnPartConnID);
+        NodeList ConnPartConnIDValue = (NodeList) exprConnPartConnID.evaluate(doc, XPathConstants.NODESET);
+        ConnPartConnIDValue.item(0).setTextContent("ConnectionPart-"+(id+4));
 
         // change ConnectionPart-Connection
         String xPathConnectionPart = "/ADOXML/MODELS/MODEL/CONNECTOR[@class='ConnectionPart-Connection']/TO/@instance";
@@ -64,24 +117,65 @@ public class addRecognition {
        // System.out.println("written "+connectionType+" to the model");
     }
 
-    public void editAction(String actionType, String context) throws ParserConfigurationException, XPathExpressionException, TransformerException, IOException, SAXException {
+    public void editAction(String context) throws ParserConfigurationException, XPathExpressionException, TransformerException, IOException, SAXException {
 
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
         org.w3c.dom.Document doc = docBuilder.parse(filepath);
         XPath xpath = XPathFactory.newInstance().newXPath();
 
-        // change ATTRIBUTES
-        String xPathAction = "/ADOXML/MODELS/MODEL/INSTANCE[@class='Action']/@name";
-        XPathExpression exprAction = xpath.compile(xPathAction);
-        NodeList ActionValue = (NodeList) exprAction.evaluate(doc, XPathConstants.NODESET);
-        ActionValue.item(0).setTextContent(context);
+//        // change ATTRIBUTES
+//        String xPathAction = "/ADOXML/MODELS/MODEL/INSTANCE[@class='Action']/@name";
+//        XPathExpression exprAction = xpath.compile(xPathAction);
+//        NodeList ActionValue = (NodeList) exprAction.evaluate(doc, XPathConstants.NODESET);
+//        ActionValue.item(0).setTextContent(context);
 
-        // change ActionPart-Connection
-        String xPathActionPart = "/ADOXML/MODELS/MODEL/CONNECTOR[@class='ActionPart-Connection']/TO/@instance";
+
+        //add ActionPart
+        String xPathActionPart = "/ADOXML/MODELS/MODEL/CONNECTOR";
         XPathExpression exprActionPart = xpath.compile(xPathActionPart);
         NodeList ActionPartValue = (NodeList) exprActionPart.evaluate(doc, XPathConstants.NODESET);
-        ActionPartValue.item(0).setTextContent(context);
+
+
+        String xmlActionPart ="<INSTANCE id=\"obj."+(id+1)+"\" class=\"ActionPart\" name=\"ActionPart-"+(id+1)+"\">\n" +
+                "<ATTRIBUTE name=\"Position\" type=\"STRING\">NODE x:4cm y:5cm w:3cm h:1cm index:2</ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"External tool coupling\" type=\"STRING\"></ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"Description\" type=\"INTEGER\">0</ATTRIBUTE>\n" +
+                "</INSTANCE>";
+
+        Node fragmentNode = docBuilder.parse(new InputSource(new StringReader(xmlActionPart)))
+                .getDocumentElement();
+        fragmentNode = doc.importNode(fragmentNode, true);
+
+        ActionPartValue.item(0).getParentNode().insertBefore(fragmentNode, ActionPartValue.item(0));
+
+
+        //add Action
+        String xmlAction ="<INSTANCE id=\"obj."+(id+5)+"\" class=\"Action\" name=\""+context+"\"> \n" +
+                "<ATTRIBUTE name=\"Position\" type=\"STRING\">NODE x:4cm y:9.5cm w:4cm h:2.8cm index:6</ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"External tool coupling\" type=\"STRING\"></ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"Description\" type=\"INTEGER\">0</ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"TimeStamp\" type=\"STRING\"></ATTRIBUTE> \n" +
+                "</INSTANCE>";
+
+        Node fragmentNodeAc = docBuilder.parse(new InputSource(new StringReader(xmlAction)))
+                .getDocumentElement();
+        fragmentNodeAc = doc.importNode(fragmentNodeAc, true);
+
+        ActionPartValue.item(0).getParentNode().insertBefore(fragmentNodeAc, ActionPartValue.item(0));
+
+
+        // change ActionPart-Connection
+        String xPathActionPartConnID = "/ADOXML/MODELS/MODEL/CONNECTOR[@class='ActionPart-Connection']/FROM/@instance";
+        XPathExpression exprActionPartConnID = xpath.compile(xPathActionPartConnID);
+        NodeList ActionPartConnIDValue = (NodeList) exprActionPartConnID.evaluate(doc, XPathConstants.NODESET);
+        ActionPartConnIDValue.item(0).setTextContent("ActionPart-"+(id+1));
+
+        // change ActionPart-Connection
+        String xPathActionPartConn = "/ADOXML/MODELS/MODEL/CONNECTOR[@class='ActionPart-Connection']/TO/@instance";
+        XPathExpression exprActionPartConn = xpath.compile(xPathActionPartConn);
+        NodeList ActionPartConnValue = (NodeList) exprActionPartConn.evaluate(doc, XPathConstants.NODESET);
+        ActionPartConnValue.item(0).setTextContent(context);
 
         // change Executing
         String xPathExecuting = "/ADOXML/MODELS/MODEL/CONNECTOR[@class='Executing']/TO/@instance";
@@ -105,18 +199,38 @@ public class addRecognition {
        // System.out.println("written "+actionType+" to the model");
     }
 
-    public void editPerson(String person, String context) throws ParserConfigurationException, XPathExpressionException, TransformerException, IOException, SAXException {
+    public void editPerson(String context) throws ParserConfigurationException, XPathExpressionException, TransformerException, IOException, SAXException {
 
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
         org.w3c.dom.Document doc = docBuilder.parse(filepath);
         XPath xpath = XPathFactory.newInstance().newXPath();
 
-        // change ATTRIBUTES
-        String xPathPerson = "/ADOXML/MODELS/MODEL/INSTANCE[@class='Person']/@name";
+//        // change ATTRIBUTES
+//        String xPathPerson = "/ADOXML/MODELS/MODEL/INSTANCE[@class='Person']/@name";
+//        XPathExpression exprPerson = xpath.compile(xPathPerson);
+//        NodeList PersonValue = (NodeList) exprPerson.evaluate(doc, XPathConstants.NODESET);
+//        PersonValue.item(0).setTextContent(context);
+
+        //add ActionPart
+        String xPathPerson = "/ADOXML/MODELS/MODEL/CONNECTOR";
         XPathExpression exprPerson = xpath.compile(xPathPerson);
         NodeList PersonValue = (NodeList) exprPerson.evaluate(doc, XPathConstants.NODESET);
-        PersonValue.item(0).setTextContent(context);
+
+        //add Person
+        String xmlPerson ="<INSTANCE id=\"obj."+(id+6)+"\" class=\"Person\" name=\""+context+"\">\n" +
+                "<ATTRIBUTE name=\"Position\" type=\"STRING\">NODE x:11.04cm y:14.68cm w:5.4cm h:2.9cm index:7</ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"External tool coupling\" type=\"STRING\"></ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"Age\" type=\"INTEGER\">0</ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"Location\" type=\"STRING\"></ATTRIBUTE>\n" +
+                "</INSTANCE>";
+
+        Node fragmentNode = docBuilder.parse(new InputSource(new StringReader(xmlPerson)))
+                .getDocumentElement();
+        fragmentNode = doc.importNode(fragmentNode, true);
+
+        PersonValue.item(0).getParentNode().insertBefore(fragmentNode, PersonValue.item(0));
+
 
         // change ThingPart-Connection
         String xPathThingPartConn = "/ADOXML/MODELS/MODEL/CONNECTOR[@class='ThingPart-Connection']/TO[@class='Person']/@instance";
@@ -151,18 +265,58 @@ public class addRecognition {
        // System.out.println("written "+person+" to the model");
     }
 
-    public void editObject(String object, String context) throws ParserConfigurationException, XPathExpressionException, TransformerException, IOException, SAXException {
+    public void editObject(String context) throws ParserConfigurationException, XPathExpressionException, TransformerException, IOException, SAXException {
 
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
         org.w3c.dom.Document doc = docBuilder.parse(filepath);
         XPath xpath = XPathFactory.newInstance().newXPath();
 
-        // change ATTRIBUTES
-        String xPathConnection = "/ADOXML/MODELS/MODEL/INSTANCE[@class='Object']/@name";
-        XPathExpression exprConnection = xpath.compile(xPathConnection);
-        NodeList ConnectionValue = (NodeList) exprConnection.evaluate(doc, XPathConstants.NODESET);
-        ConnectionValue.item(0).setTextContent(context);
+//        // change ATTRIBUTES
+//        String xPathConnection = "/ADOXML/MODELS/MODEL/INSTANCE[@class='Object']/@name";
+//        XPathExpression exprConnection = xpath.compile(xPathConnection);
+//        NodeList ConnectionValue = (NodeList) exprConnection.evaluate(doc, XPathConstants.NODESET);
+//        ConnectionValue.item(0).setTextContent(context);
+
+        //add ThingPart
+        String xPathThingPart = "/ADOXML/MODELS/MODEL/CONNECTOR";
+        XPathExpression exprThingPart = xpath.compile(xPathThingPart);
+        NodeList ThingPartValue = (NodeList) exprThingPart.evaluate(doc, XPathConstants.NODESET);
+
+        String xmlThingPart ="<INSTANCE id=\"obj."+(id+2)+"\" class=\"ThingPart\" name=\"ThingPart-"+(id+2)+"\">\n" +
+                "<ATTRIBUTE name=\"Position\" type=\"STRING\">NODE x:7.5cm y:5cm w:3cm h:1cm index:3</ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"External tool coupling\" type=\"STRING\"></ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"Description\" type=\"INTEGER\">0</ATTRIBUTE>\n" +
+                "</INSTANCE>";
+
+        Node fragmentNodeThingPart = docBuilder.parse(new InputSource(new StringReader(xmlThingPart)))
+                .getDocumentElement();
+        fragmentNodeThingPart = doc.importNode(fragmentNodeThingPart, true);
+
+        ThingPartValue.item(0).getParentNode().insertBefore(fragmentNodeThingPart, ThingPartValue.item(0));
+
+        // change ThingPart-Connection ID
+        String xPathThingPartConnID = "/ADOXML/MODELS/MODEL/CONNECTOR[@class='ThingPart-Connection']/FROM/@instance";
+        XPathExpression exprThingPartConnID = xpath.compile(xPathThingPartConnID);
+        NodeList ThingPartConnIDValue = (NodeList) exprThingPartConnID.evaluate(doc, XPathConstants.NODESET);
+
+        for(int i=0; i<ThingPartConnIDValue.getLength(); i++) {
+            ThingPartConnIDValue.item(i).setTextContent("ThingPart-" + (id + 2));
+        }
+
+        //add Thing
+        String xmlThing ="<INSTANCE id=\"obj."+(id+7)+"\" class=\"Object\" name=\""+context+"\">\n" +
+                "<ATTRIBUTE name=\"Position\" type=\"STRING\">NODE x:11cm y:9.5cm w:4.4cm h:2.6cm index:8</ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"External tool coupling\" type=\"STRING\"></ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"Location\" type=\"STRING\"></ATTRIBUTE>\n" +
+                "</INSTANCE>";
+
+        Node fragmentNodeThing = docBuilder.parse(new InputSource(new StringReader(xmlThing)))
+                .getDocumentElement();
+        fragmentNodeThing = doc.importNode(fragmentNodeThing, true);
+
+        ThingPartValue.item(0).getParentNode().insertBefore(fragmentNodeThing, ThingPartValue.item(0));
+
 
         // change ThingPart-Connection
         String xPathThingPartConn = "/ADOXML/MODELS/MODEL/CONNECTOR[@class='ThingPart-Connection']/TO/@instance";
@@ -197,18 +351,37 @@ public class addRecognition {
        // System.out.println("written "+object+" to the model");
     }
 
-    public void editSecondObject(String object, String context) throws ParserConfigurationException, XPathExpressionException, TransformerException, IOException, SAXException {
+    public void editSecondObject(String context) throws ParserConfigurationException, XPathExpressionException, TransformerException, IOException, SAXException {
 
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
         org.w3c.dom.Document doc = docBuilder.parse(filepath);
         XPath xpath = XPathFactory.newInstance().newXPath();
 
-        // change ATTRIBUTES
-        String xPathConnection = "/ADOXML/MODELS/MODEL/INSTANCE[@class='Object']/@name";
-        XPathExpression exprConnection = xpath.compile(xPathConnection);
-        NodeList ConnectionValue = (NodeList) exprConnection.evaluate(doc, XPathConstants.NODESET);
-        ConnectionValue.item(1).setTextContent(context);
+//        // change ATTRIBUTES
+//        String xPathConnection = "/ADOXML/MODELS/MODEL/INSTANCE[@class='Object']/@name";
+//        XPathExpression exprConnection = xpath.compile(xPathConnection);
+//        NodeList ConnectionValue = (NodeList) exprConnection.evaluate(doc, XPathConstants.NODESET);
+//        ConnectionValue.item(1).setTextContent(context);
+
+        //add ThingPart
+        String xPathThingPart = "/ADOXML/MODELS/MODEL/CONNECTOR";
+        XPathExpression exprThingPart = xpath.compile(xPathThingPart);
+        NodeList ThingPartValue = (NodeList) exprThingPart.evaluate(doc, XPathConstants.NODESET);
+
+        //add Thing
+        String xmlThing ="<INSTANCE id=\"obj."+(id+8)+"\" class=\"Object\" name=\""+context+"\">\n" +
+                "<ATTRIBUTE name=\"Position\" type=\"STRING\">NODE x:11cm y:9.5cm w:4.4cm h:2.6cm index:8</ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"External tool coupling\" type=\"STRING\"></ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"Location\" type=\"STRING\"></ATTRIBUTE>\n" +
+                "</INSTANCE>";
+
+        Node fragmentNodeThing = docBuilder.parse(new InputSource(new StringReader(xmlThing)))
+                .getDocumentElement();
+        fragmentNodeThing = doc.importNode(fragmentNodeThing, true);
+
+        ThingPartValue.item(0).getParentNode().insertBefore(fragmentNodeThing, ThingPartValue.item(0));
+
 
         // change ThingPart-Connection
         String xPathThingPartConn = "/ADOXML/MODELS/MODEL/CONNECTOR[@class='ThingPart-Connection']/TO/@instance";
@@ -244,6 +417,8 @@ public class addRecognition {
     }
 
 
+
+
     public addRecognition(String recognition) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException {
         filepath ="./template/template.xml";
 
@@ -254,11 +429,50 @@ public class addRecognition {
         org.w3c.dom.Document doc = docBuilder.parse(filepath);
         XPath xpath = XPathFactory.newInstance().newXPath();
 
-        // change ATTRIBUTES
-        String xPathRecognition = "/ADOXML/MODELS/MODEL/INSTANCE[@class='Recognition']/@name";
+
+        //add PropertyPart
+        String xPathPropertyPart = "/ADOXML/MODELS/MODEL/CONNECTOR";
+        XPathExpression exprPropertyPart = xpath.compile(xPathPropertyPart);
+        NodeList PropertyPartValue = (NodeList) exprPropertyPart.evaluate(doc, XPathConstants.NODESET);
+
+        String xmlPropertyPart ="<INSTANCE id=\"obj."+(id+3)+"\" class=\"PropertyPart\" name=\"PropertyPart-"+(id+3)+"\">\n" +
+                "<ATTRIBUTE name=\"Position\" type=\"STRING\">NODE x:11cm y:5cm w:3cm h:1cm index:4</ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"External tool coupling\" type=\"STRING\"></ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"Description\" type=\"INTEGER\">0</ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"TimeStamp\" type=\"STRING\"></ATTRIBUTE>\n" +
+                "</INSTANCE>";
+
+        Node fragmentNodePropertyPart = docBuilder.parse(new InputSource(new StringReader(xmlPropertyPart)))
+                .getDocumentElement();
+        fragmentNodePropertyPart = doc.importNode(fragmentNodePropertyPart, true);
+
+        PropertyPartValue.item(0).getParentNode().insertBefore(fragmentNodePropertyPart, PropertyPartValue.item(0));
+
+        //add Recognition
+        String xPathRecognition = "/ADOXML/MODELS/MODEL/CONNECTOR";
         XPathExpression exprRecognition = xpath.compile(xPathRecognition);
-        NodeList recognitionValue = (NodeList) exprRecognition.evaluate(doc, XPathConstants.NODESET);
-        recognitionValue.item(0).setTextContent(recognition);
+        NodeList RecognitionValue = (NodeList) exprRecognition.evaluate(doc, XPathConstants.NODESET);
+
+        String xmlRecognition ="<INSTANCE id=\"obj."+id+"\" class=\"Recognition\" name=\""+recognition+"\">\n" +
+                "<ATTRIBUTE name=\"Position\" type=\"STRING\">NODE x:9.25cm y:4.5cm w:14cm h:3cm index:1</ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"External tool coupling\" type=\"STRING\"></ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"Description\" type=\"INTEGER\">0</ATTRIBUTE>\n" +
+                "<ATTRIBUTE name=\"TimeStamp\" type=\"STRING\"></ATTRIBUTE>\n" +
+                "</INSTANCE>";
+
+        Node fragmentNodeRecognition = docBuilder.parse(new InputSource(new StringReader(xmlRecognition)))
+                .getDocumentElement();
+        fragmentNodeRecognition = doc.importNode(fragmentNodeRecognition, true);
+
+        RecognitionValue.item(0).getParentNode().insertBefore(fragmentNodeRecognition, RecognitionValue.item(0));
+
+
+
+        // change ATTRIBUTES
+//        String xPathRecognition = "/ADOXML/MODELS/MODEL/INSTANCE[@class='Recognition']/@name";
+//        XPathExpression exprRecognition = xpath.compile(xPathRecognition);
+//        NodeList recognitionValue = (NodeList) exprRecognition.evaluate(doc, XPathConstants.NODESET);
+//        recognitionValue.item(0).setTextContent(recognition);
 
         // write the content into xml file
      //   TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -275,9 +489,9 @@ public class addRecognition {
         copyFile(dest, newdest);
         System.out.println("copied");
 
-      //  dest.delete();
+        dest.delete();
 
-        String oldTemp ="./template/template1.xml";
+        String oldTemp ="./template/tempCopy.xml";
         File oldTemplate = new File(oldTemp);
         File newTemp = new File("./template/template.xml");
         copyFile(oldTemplate, newTemp);
