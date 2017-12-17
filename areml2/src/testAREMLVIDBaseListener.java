@@ -13,27 +13,10 @@ public class testAREMLVIDBaseListener extends AREMLVIDBaseListener  {
     private final String setText = "\033[31m";
     private final String setPlainText = "\033[0m";
 
-
-    @Override public void enterGender(AREMLVIDParser.GenderContext ctx) {
-        System.out.println(setText+"<gender>"+ setPlainText+ ctx.getText());
-        if(ctx.getText() != null){
-            new templateSelector("2");
-        }
-
-    }
-
-    @Override
-    public void enterConnectionType(AREMLVIDParser.ConnectionTypeContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException {
-        System.out.print(setText+"<Connection type>"+setPlainText + ctx.getText() + " ");
-        if(ctx.getText()!=null) {
-            new addRecognition().editConnection(ctx.getText());
-        }
-      }
-
     @Override
     public void enterPerson(AREMLVIDParser.PersonContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException
     {
-        System.out.print(setText + "<Person>"+setPlainText+ctx.getText()+" ");
+        System.out.print(setText + "<Person>" + setPlainText + ctx.getText() + " ");
         if(ctx.getText()!=null) {
             new addRecognition().editPerson(ctx.getText());
         }
@@ -63,4 +46,18 @@ public class testAREMLVIDBaseListener extends AREMLVIDBaseListener  {
         }
     }
 
+    @Override
+    public void enterConnectionType(AREMLVIDParser.ConnectionTypeContext ctx) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException, TransformerException {
+        System.out.print(setText+"<Connection type>"+setPlainText + ctx.getText() + " ");
+        if(ctx.getText()!=null) {
+            new addRecognition().editConnection(ctx.getText());
+        }
+    }
+
+    @Override public void enterPersonProperty(AREMLVIDParser.PersonPropertyContext ctx) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException, TransformerException {
+        System.out.println(setText + "<propertyObject>" + setPlainText + ctx.getText());
+        if(ctx.getText() != null){
+            new addRecognition().editProperty(ctx.getText());
+        }
+    }
 }

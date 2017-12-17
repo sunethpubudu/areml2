@@ -32,7 +32,7 @@ public class readInputData extends AREMLBaseListener {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
         DocumentBuilder builder;
-        Document doc = null;
+        Document doc;
 
         builder = factory.newDocumentBuilder();
         doc = builder.parse(file);
@@ -74,7 +74,7 @@ public class readInputData extends AREMLBaseListener {
         String person = (String)per.evaluate(doc, XPathConstants.STRING);
         if(!person.isEmpty()) {
             Person = getPerson(doc, xpath, "Person", "Location");
-            All.put("ThingPart Person", Person);
+            All.put("Person", Person);
         }
 
         XPathExpression conn = xpath.compile("/ADOXML/MODELS/MODEL/INSTANCE[@class='Connection']");
@@ -270,7 +270,7 @@ public class readInputData extends AREMLBaseListener {
             String To = (String) to.evaluate(doc, XPathConstants.STRING);
             Object.put("To", To);
 
-            Objects.put("Connection " + expr1 + "", Object);
+            Objects.put(expr1 + "", Object);
 
         } catch (XPathExpressionException e) {
             e.printStackTrace();

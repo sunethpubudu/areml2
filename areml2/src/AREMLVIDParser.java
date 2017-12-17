@@ -27,11 +27,11 @@ public class AREMLVIDParser extends Parser {
 		ARTICLE=18, STRING=19, WS=20;
 	public static final int
 		RULE_aremlvid = 0, RULE_verb = 1, RULE_connectionType = 2, RULE_secondconnectiontype = 3, 
-		RULE_gender = 4, RULE_and = 5, RULE_person = 6, RULE_action = 7, RULE_object = 8, 
-		RULE_secondobject = 9;
+		RULE_gender = 4, RULE_personProperty = 5, RULE_and = 6, RULE_person = 7, 
+		RULE_action = 8, RULE_object = 9, RULE_secondobject = 10;
 	public static final String[] ruleNames = {
 		"aremlvid", "verb", "connectionType", "secondconnectiontype", "gender", 
-		"and", "person", "action", "object", "secondobject"
+		"personProperty", "and", "person", "action", "object", "secondobject"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
@@ -98,16 +98,16 @@ public class AREMLVIDParser extends Parser {
 			return getToken(AREMLVIDParser.ARTICLE, i);
 		}
 		public PersonContext person() {
-			return getRuleContext(PersonContext.class,0);
+			return getRuleContext(PersonContext.class, 0);
 		}
 		public ActionContext action() {
 			return getRuleContext(ActionContext.class,0);
 		}
 		public ConnectionTypeContext connectionType() {
-			return getRuleContext(ConnectionTypeContext.class,0);
+			return getRuleContext(ConnectionTypeContext.class, 0);
 		}
 		public ObjectContext object() {
-			return getRuleContext(ObjectContext.class,0);
+			return getRuleContext(ObjectContext.class, 0);
 		}
 		public List<TerminalNode> STRING() { return getTokens(AREMLVIDParser.STRING); }
 		public TerminalNode STRING(int i) {
@@ -117,10 +117,13 @@ public class AREMLVIDParser extends Parser {
 			return getRuleContext(VerbContext.class,0);
 		}
 		public SecondobjectContext secondobject() {
-			return getRuleContext(SecondobjectContext.class,0);
+			return getRuleContext(SecondobjectContext.class, 0);
 		}
 		public GenderContext gender() {
 			return getRuleContext(GenderContext.class,0);
+		}
+		public PersonPropertyContext personProperty() {
+			return getRuleContext(PersonPropertyContext.class,0);
 		}
 		public SecondconnectiontypeContext secondconnectiontype() {
 			return getRuleContext(SecondconnectiontypeContext.class,0);
@@ -144,175 +147,285 @@ public class AREMLVIDParser extends Parser {
 		enterRule(_localctx, 0, RULE_aremlvid);
 		int _la;
 		try {
-			setState(78);
+			setState(118);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,18,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(20);
-				match(ARTICLE);
 				setState(22);
+				match(ARTICLE);
+				setState(24);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
 				case 1:
 					{
-					setState(21);
+					setState(23);
 					match(STRING);
 					}
 					break;
 				}
-				setState(24);
-				person();
 				setState(26);
+				person();
+				setState(28);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==T__0 || _la==T__1) {
 					{
-					setState(25);
+					setState(27);
 					verb();
 					}
 				}
 
-				setState(28);
-				action();
-				setState(29);
-				connectionType();
 				setState(30);
-				match(ARTICLE);
+				action();
 				setState(31);
+				connectionType();
+				setState(32);
+				match(ARTICLE);
+				setState(33);
 				object();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(33);
-				match(ARTICLE);
 				setState(35);
+				match(ARTICLE);
+				setState(37);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 				case 1:
 					{
-					setState(34);
+					setState(36);
 					match(STRING);
 					}
 					break;
 				}
-				setState(37);
-				person();
 				setState(39);
+				person();
+				setState(41);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==ARTICLE) {
 					{
-					setState(38);
+					setState(40);
 					match(ARTICLE);
 					}
 				}
 
-				setState(41);
+				setState(43);
 				action();
-				setState(42);
-				match(ARTICLE);
 				setState(44);
+				match(ARTICLE);
+				setState(46);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 				case 1:
 					{
-					setState(43);
+					setState(45);
 					match(STRING);
 					}
 					break;
 				}
-				setState(46);
+				setState(48);
 				object();
-				setState(47);
-				connectionType();
 				setState(49);
+				connectionType();
+				setState(51);
 				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==T__15 || _la==T__16) {
-					{
-					setState(48);
-					gender();
-					}
-				}
-
-				setState(52);
-				_errHandler.sync(this);
-				switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
+				switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
 				case 1:
 					{
-					setState(51);
+					setState(50);
 					match(STRING);
 					}
 					break;
 				}
-				setState(54);
+				setState(53);
 				secondobject();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(56);
+				setState(55);
 				match(ARTICLE);
-				setState(58);
+				setState(57);
 				_errHandler.sync(this);
-				switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
+				switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 				case 1:
 					{
-					setState(57);
+					setState(56);
 					match(STRING);
 					}
 					break;
 				}
-				setState(60);
+				setState(59);
 				person();
-				setState(62);
+				setState(61);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if (_la==T__0 || _la==T__1) {
+				if (_la==ARTICLE) {
 					{
-					setState(61);
-					verb();
+					setState(60);
+					match(ARTICLE);
 					}
 				}
 
-				setState(64);
+				setState(63);
 				action();
-				setState(65);
-				connectionType();
+				setState(64);
+				match(ARTICLE);
 				setState(66);
-				match(ARTICLE);
-				setState(67);
-				object();
-				setState(68);
-				secondconnectiontype();
-				setState(69);
-				match(ARTICLE);
-				setState(71);
 				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==T__15 || _la==T__16) {
+				switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
+				case 1:
 					{
-					setState(70);
-					gender();
+					setState(65);
+					match(STRING);
 					}
+					break;
 				}
-
+				setState(68);
+				object();
+				setState(69);
+				connectionType();
+				setState(70);
+				gender();
+				setState(72);
+				_errHandler.sync(this);
+				switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
+				case 1:
+					{
+					setState(71);
+					match(STRING);
+					}
+					break;
+				}
 				setState(74);
+				personProperty();
+				}
+				break;
+			case 4:
+				enterOuterAlt(_localctx, 4);
+				{
+				setState(76);
+				match(ARTICLE);
+				setState(78);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 				case 1:
 					{
-					setState(73);
+					setState(77);
 					match(STRING);
 					}
 					break;
 				}
-				setState(76);
+				setState(80);
+				person();
+				setState(82);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==T__0 || _la==T__1) {
+					{
+					setState(81);
+					verb();
+					}
+				}
+
+				setState(84);
+				action();
+				setState(86);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==ARTICLE) {
+					{
+					setState(85);
+					match(ARTICLE);
+					}
+				}
+
+				setState(89);
+				_errHandler.sync(this);
+				switch ( getInterpreter().adaptivePredict(_input,13,_ctx) ) {
+				case 1:
+					{
+					setState(88);
+					match(STRING);
+					}
+					break;
+				}
+				setState(91);
+				object();
+				setState(92);
+				connectionType();
+				setState(93);
+				gender();
+				setState(94);
+				personProperty();
+				}
+				break;
+			case 5:
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(96);
+				match(ARTICLE);
+				setState(98);
+				_errHandler.sync(this);
+				switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
+				case 1:
+					{
+					setState(97);
+					match(STRING);
+					}
+					break;
+				}
+				setState(100);
+				person();
+				setState(102);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==T__0 || _la==T__1) {
+					{
+					setState(101);
+					verb();
+					}
+				}
+
+				setState(104);
+				action();
+				setState(105);
+				connectionType();
+				setState(106);
+				match(ARTICLE);
+				setState(107);
+				object();
+				setState(108);
+				secondconnectiontype();
+				setState(109);
+				match(ARTICLE);
+				setState(111);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==T__15 || _la==T__16) {
+					{
+					setState(110);
+					gender();
+					}
+				}
+
+				setState(114);
+				_errHandler.sync(this);
+				switch ( getInterpreter().adaptivePredict(_input,17,_ctx) ) {
+				case 1:
+					{
+					setState(113);
+					match(STRING);
+					}
+					break;
+				}
+				setState(116);
 				secondobject();
 				}
 				break;
@@ -351,7 +464,7 @@ public class AREMLVIDParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(80);
+			setState(120);
 			_la = _input.LA(1);
 			if ( !(_la==T__0 || _la==T__1) ) {
 			_errHandler.recoverInline(this);
@@ -408,7 +521,7 @@ public class AREMLVIDParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(82);
+			setState(122);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << T__5) | (1L << T__6) | (1L << T__7) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__12) | (1L << T__13) | (1L << T__14))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -453,7 +566,7 @@ public class AREMLVIDParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(84);
+			setState(124);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__3) | (1L << T__4) | (1L << T__5) | (1L << T__6) | (1L << T__7) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__12) | (1L << T__13) | (1L << T__14))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -498,7 +611,7 @@ public class AREMLVIDParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(86);
+			setState(126);
 			_la = _input.LA(1);
 			if ( !(_la==T__15 || _la==T__16) ) {
 			_errHandler.recoverInline(this);
@@ -508,6 +621,55 @@ public class AREMLVIDParser extends Parser {
 				_errHandler.reportMatch(this);
 				consume();
 			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class PersonPropertyContext extends ParserRuleContext {
+		public TerminalNode STRING() { return getToken(AREMLVIDParser.STRING, 0); }
+		public PersonPropertyContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_personProperty; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AREMLVIDListener ) try {
+				((AREMLVIDListener)listener).enterPersonProperty(this);
+			} catch (ParserConfigurationException e) {
+				e.printStackTrace();
+			} catch (SAXException e) {
+				e.printStackTrace();
+			} catch (XPathExpressionException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (TransformerException e) {
+				e.printStackTrace();
+			}
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AREMLVIDListener ) ((AREMLVIDListener)listener).exitPersonProperty(this);
+		}
+	}
+
+	public final PersonPropertyContext personProperty() throws RecognitionException {
+		PersonPropertyContext _localctx = new PersonPropertyContext(_ctx, getState());
+		enterRule(_localctx, 10, RULE_personProperty);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(128);
+			match(STRING);
 			}
 		}
 		catch (RecognitionException re) {
@@ -539,11 +701,11 @@ public class AREMLVIDParser extends Parser {
 
 	public final AndContext and() throws RecognitionException {
 		AndContext _localctx = new AndContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_and);
+		enterRule(_localctx, 12, RULE_and);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(88);
+			setState(130);
 			match(STRING);
 			}
 		}
@@ -588,11 +750,11 @@ public class AREMLVIDParser extends Parser {
 
 	public final PersonContext person() throws RecognitionException {
 		PersonContext _localctx = new PersonContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_person);
+		enterRule(_localctx, 14, RULE_person);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(90);
+			setState(132);
 			match(STRING);
 			}
 		}
@@ -637,11 +799,11 @@ public class AREMLVIDParser extends Parser {
 
 	public final ActionContext action() throws RecognitionException {
 		ActionContext _localctx = new ActionContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_action);
+		enterRule(_localctx, 16, RULE_action);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(92);
+			setState(134);
 			match(STRING);
 			}
 		}
@@ -686,11 +848,11 @@ public class AREMLVIDParser extends Parser {
 
 	public final ObjectContext object() throws RecognitionException {
 		ObjectContext _localctx = new ObjectContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_object);
+		enterRule(_localctx, 18, RULE_object);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(94);
+			setState(136);
 			match(STRING);
 			}
 		}
@@ -735,11 +897,11 @@ public class AREMLVIDParser extends Parser {
 
 	public final SecondobjectContext secondobject() throws RecognitionException {
 		SecondobjectContext _localctx = new SecondobjectContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_secondobject);
+		enterRule(_localctx, 20, RULE_secondobject);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(96);
+			setState(138);
 			match(STRING);
 			}
 		}
@@ -755,31 +917,44 @@ public class AREMLVIDParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\26e\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\3"+
-		"\2\3\2\5\2\31\n\2\3\2\3\2\5\2\35\n\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2&"+
-		"\n\2\3\2\3\2\5\2*\n\2\3\2\3\2\3\2\5\2/\n\2\3\2\3\2\3\2\5\2\64\n\2\3\2"+
-		"\5\2\67\n\2\3\2\3\2\3\2\3\2\5\2=\n\2\3\2\3\2\5\2A\n\2\3\2\3\2\3\2\3\2"+
-		"\3\2\3\2\3\2\5\2J\n\2\3\2\5\2M\n\2\3\2\3\2\5\2Q\n\2\3\3\3\3\3\4\3\4\3"+
-		"\5\3\5\3\6\3\6\3\7\3\7\3\b\3\b\3\t\3\t\3\n\3\n\3\13\3\13\3\13\2\2\f\2"+
-		"\4\6\b\n\f\16\20\22\24\2\5\3\2\3\4\3\2\5\21\3\2\22\23\2g\2P\3\2\2\2\4"+
-		"R\3\2\2\2\6T\3\2\2\2\bV\3\2\2\2\nX\3\2\2\2\fZ\3\2\2\2\16\\\3\2\2\2\20"+
-		"^\3\2\2\2\22`\3\2\2\2\24b\3\2\2\2\26\30\7\24\2\2\27\31\7\25\2\2\30\27"+
-		"\3\2\2\2\30\31\3\2\2\2\31\32\3\2\2\2\32\34\5\16\b\2\33\35\5\4\3\2\34\33"+
-		"\3\2\2\2\34\35\3\2\2\2\35\36\3\2\2\2\36\37\5\20\t\2\37 \5\6\4\2 !\7\24"+
-		"\2\2!\"\5\22\n\2\"Q\3\2\2\2#%\7\24\2\2$&\7\25\2\2%$\3\2\2\2%&\3\2\2\2"+
-		"&\'\3\2\2\2\')\5\16\b\2(*\7\24\2\2)(\3\2\2\2)*\3\2\2\2*+\3\2\2\2+,\5\20"+
-		"\t\2,.\7\24\2\2-/\7\25\2\2.-\3\2\2\2./\3\2\2\2/\60\3\2\2\2\60\61\5\22"+
-		"\n\2\61\63\5\6\4\2\62\64\5\n\6\2\63\62\3\2\2\2\63\64\3\2\2\2\64\66\3\2"+
-		"\2\2\65\67\7\25\2\2\66\65\3\2\2\2\66\67\3\2\2\2\678\3\2\2\289\5\24\13"+
-		"\29Q\3\2\2\2:<\7\24\2\2;=\7\25\2\2<;\3\2\2\2<=\3\2\2\2=>\3\2\2\2>@\5\16"+
-		"\b\2?A\5\4\3\2@?\3\2\2\2@A\3\2\2\2AB\3\2\2\2BC\5\20\t\2CD\5\6\4\2DE\7"+
-		"\24\2\2EF\5\22\n\2FG\5\b\5\2GI\7\24\2\2HJ\5\n\6\2IH\3\2\2\2IJ\3\2\2\2"+
-		"JL\3\2\2\2KM\7\25\2\2LK\3\2\2\2LM\3\2\2\2MN\3\2\2\2NO\5\24\13\2OQ\3\2"+
-		"\2\2P\26\3\2\2\2P#\3\2\2\2P:\3\2\2\2Q\3\3\2\2\2RS\t\2\2\2S\5\3\2\2\2T"+
-		"U\t\3\2\2U\7\3\2\2\2VW\t\3\2\2W\t\3\2\2\2XY\t\4\2\2Y\13\3\2\2\2Z[\7\25"+
-		"\2\2[\r\3\2\2\2\\]\7\25\2\2]\17\3\2\2\2^_\7\25\2\2_\21\3\2\2\2`a\7\25"+
-		"\2\2a\23\3\2\2\2bc\7\25\2\2c\25\3\2\2\2\16\30\34%).\63\66<@ILP";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\26\u008f\4\2\t\2"+
+		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
+		"\t\13\4\f\t\f\3\2\3\2\5\2\33\n\2\3\2\3\2\5\2\37\n\2\3\2\3\2\3\2\3\2\3"+
+		"\2\3\2\3\2\5\2(\n\2\3\2\3\2\5\2,\n\2\3\2\3\2\3\2\5\2\61\n\2\3\2\3\2\3"+
+		"\2\5\2\66\n\2\3\2\3\2\3\2\3\2\5\2<\n\2\3\2\3\2\5\2@\n\2\3\2\3\2\3\2\5"+
+		"\2E\n\2\3\2\3\2\3\2\3\2\5\2K\n\2\3\2\3\2\3\2\3\2\5\2Q\n\2\3\2\3\2\5\2"+
+		"U\n\2\3\2\3\2\5\2Y\n\2\3\2\5\2\\\n\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2e"+
+		"\n\2\3\2\3\2\5\2i\n\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2r\n\2\3\2\5\2u\n"+
+		"\2\3\2\3\2\5\2y\n\2\3\3\3\3\3\4\3\4\3\5\3\5\3\6\3\6\3\7\3\7\3\b\3\b\3"+
+		"\t\3\t\3\n\3\n\3\13\3\13\3\f\3\f\3\f\2\2\r\2\4\6\b\n\f\16\20\22\24\26"+
+		"\2\5\3\2\3\4\3\2\5\21\3\2\22\23\2\u0099\2x\3\2\2\2\4z\3\2\2\2\6|\3\2\2"+
+		"\2\b~\3\2\2\2\n\u0080\3\2\2\2\f\u0082\3\2\2\2\16\u0084\3\2\2\2\20\u0086"+
+		"\3\2\2\2\22\u0088\3\2\2\2\24\u008a\3\2\2\2\26\u008c\3\2\2\2\30\32\7\24"+
+		"\2\2\31\33\7\25\2\2\32\31\3\2\2\2\32\33\3\2\2\2\33\34\3\2\2\2\34\36\5"+
+		"\20\t\2\35\37\5\4\3\2\36\35\3\2\2\2\36\37\3\2\2\2\37 \3\2\2\2 !\5\22\n"+
+		"\2!\"\5\6\4\2\"#\7\24\2\2#$\5\24\13\2$y\3\2\2\2%\'\7\24\2\2&(\7\25\2\2"+
+		"\'&\3\2\2\2\'(\3\2\2\2()\3\2\2\2)+\5\20\t\2*,\7\24\2\2+*\3\2\2\2+,\3\2"+
+		"\2\2,-\3\2\2\2-.\5\22\n\2.\60\7\24\2\2/\61\7\25\2\2\60/\3\2\2\2\60\61"+
+		"\3\2\2\2\61\62\3\2\2\2\62\63\5\24\13\2\63\65\5\6\4\2\64\66\7\25\2\2\65"+
+		"\64\3\2\2\2\65\66\3\2\2\2\66\67\3\2\2\2\678\5\26\f\28y\3\2\2\29;\7\24"+
+		"\2\2:<\7\25\2\2;:\3\2\2\2;<\3\2\2\2<=\3\2\2\2=?\5\20\t\2>@\7\24\2\2?>"+
+		"\3\2\2\2?@\3\2\2\2@A\3\2\2\2AB\5\22\n\2BD\7\24\2\2CE\7\25\2\2DC\3\2\2"+
+		"\2DE\3\2\2\2EF\3\2\2\2FG\5\24\13\2GH\5\6\4\2HJ\5\n\6\2IK\7\25\2\2JI\3"+
+		"\2\2\2JK\3\2\2\2KL\3\2\2\2LM\5\f\7\2My\3\2\2\2NP\7\24\2\2OQ\7\25\2\2P"+
+		"O\3\2\2\2PQ\3\2\2\2QR\3\2\2\2RT\5\20\t\2SU\5\4\3\2TS\3\2\2\2TU\3\2\2\2"+
+		"UV\3\2\2\2VX\5\22\n\2WY\7\24\2\2XW\3\2\2\2XY\3\2\2\2Y[\3\2\2\2Z\\\7\25"+
+		"\2\2[Z\3\2\2\2[\\\3\2\2\2\\]\3\2\2\2]^\5\24\13\2^_\5\6\4\2_`\5\n\6\2`"+
+		"a\5\f\7\2ay\3\2\2\2bd\7\24\2\2ce\7\25\2\2dc\3\2\2\2de\3\2\2\2ef\3\2\2"+
+		"\2fh\5\20\t\2gi\5\4\3\2hg\3\2\2\2hi\3\2\2\2ij\3\2\2\2jk\5\22\n\2kl\5\6"+
+		"\4\2lm\7\24\2\2mn\5\24\13\2no\5\b\5\2oq\7\24\2\2pr\5\n\6\2qp\3\2\2\2q"+
+		"r\3\2\2\2rt\3\2\2\2su\7\25\2\2ts\3\2\2\2tu\3\2\2\2uv\3\2\2\2vw\5\26\f"+
+		"\2wy\3\2\2\2x\30\3\2\2\2x%\3\2\2\2x9\3\2\2\2xN\3\2\2\2xb\3\2\2\2y\3\3"+
+		"\2\2\2z{\t\2\2\2{\5\3\2\2\2|}\t\3\2\2}\7\3\2\2\2~\177\t\3\2\2\177\t\3"+
+		"\2\2\2\u0080\u0081\t\4\2\2\u0081\13\3\2\2\2\u0082\u0083\7\25\2\2\u0083"+
+		"\r\3\2\2\2\u0084\u0085\7\25\2\2\u0085\17\3\2\2\2\u0086\u0087\7\25\2\2"+
+		"\u0087\21\3\2\2\2\u0088\u0089\7\25\2\2\u0089\23\3\2\2\2\u008a\u008b\7"+
+		"\25\2\2\u008b\25\3\2\2\2\u008c\u008d\7\25\2\2\u008d\27\3\2\2\2\25\32\36"+
+		"\'+\60\65;?DJPTX[dhqtx";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -63,6 +63,16 @@ public interface AREMLVIDListener extends ParseTreeListener {
 	 */
 	void exitGender(AREMLVIDParser.GenderContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link AREMLVIDParser#personProperty}.
+	 * @param ctx the parse tree
+	 */
+	void enterPersonProperty(AREMLVIDParser.PersonPropertyContext ctx) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException, TransformerException;
+	/**
+	 * Exit a parse tree produced by {@link AREMLVIDParser#personProperty}.
+	 * @param ctx the parse tree
+	 */
+	void exitPersonProperty(AREMLVIDParser.PersonPropertyContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link AREMLVIDParser#and}.
 	 * @param ctx the parse tree
 	 */

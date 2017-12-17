@@ -81,6 +81,18 @@ public class AREMLVIDBaseListener implements AREMLVIDListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterPersonProperty(AREMLVIDParser.PersonPropertyContext ctx) throws ParserConfigurationException, SAXException, XPathExpressionException, IOException, TransformerException { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPersonProperty(AREMLVIDParser.PersonPropertyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterAnd(AREMLVIDParser.AndContext ctx) { }
 	/**
 	 * {@inheritDoc}

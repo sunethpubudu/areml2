@@ -26,10 +26,10 @@ public class test {
                 readOutside = br.readLine();
                 if(readOutside!=null) {
                     String readSentence = readOutside.replaceAll("\"", "");
-                    String noSpaceReadOutside = readSentence.replaceAll("\\s+", "");
+                    String noSpaceReadOutside = readSentence.replaceAll("\\s+", "_");
 
                     String inside = new test().readTempdata();
-                    String noSpaceReadInside = inside.replaceAll("\\s+", "");
+                    String noSpaceReadInside = inside.replaceAll("\\s+", "_");
 
                     if (!(noSpaceReadOutside.equals(noSpaceReadInside))) {
                         new test().testPerson(readSentence);
@@ -53,7 +53,7 @@ public class test {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-            } Thread.sleep(500);
+            } Thread.sleep(2000);
         }
     }
 
