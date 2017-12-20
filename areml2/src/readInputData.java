@@ -264,11 +264,27 @@ public class readInputData extends AREMLBaseListener {
 
             XPathExpression from = xpath.compile("/ADOXML/MODELS/MODEL/CONNECTOR[@class='from']/FROM/@instance");
             String From = (String) from.evaluate(doc, XPathConstants.STRING);
-            Object.put("From", From);
+            if(!From.isEmpty() && !From.equals("Person-57410")) {
+                Object.put("From", From);
+            }
+
+            XPathExpression fromProperty = xpath.compile("/ADOXML/MODELS/MODEL/CONNECTOR[@class='fromProperty']/FROM/@instance");
+            String FromProperty = (String) fromProperty.evaluate(doc, XPathConstants.STRING);
+            if(!FromProperty.isEmpty() && !FromProperty.equals("Person-57410")) {
+                Object.put("From", FromProperty);
+            }
 
             XPathExpression to = xpath.compile("/ADOXML/MODELS/MODEL/CONNECTOR[@class='to']/TO/@instance");
             String To = (String) to.evaluate(doc, XPathConstants.STRING);
-            Object.put("To", To);
+            if(!To.isEmpty() && !To.equals("Connection-57424")) {
+                Object.put("To", To);
+            }
+
+            XPathExpression toProperty = xpath.compile("/ADOXML/MODELS/MODEL/CONNECTOR[@class='toProperty']/TO/@instance");
+            String ToProperty = (String) toProperty.evaluate(doc, XPathConstants.STRING);
+            if(!ToProperty.isEmpty() && !ToProperty.equals("Connection-57424")) {
+                Object.put("To", ToProperty);
+            }
 
             Objects.put(expr1 + "", Object);
 

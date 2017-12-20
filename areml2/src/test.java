@@ -53,7 +53,7 @@ public class test {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-            } Thread.sleep(2000);
+            } Thread.sleep(4000);
         }
     }
 
