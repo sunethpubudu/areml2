@@ -62,7 +62,7 @@ CHAPTER "Technical"
 <ATTRIBUTE name="Position" type="STRING">NODE x:12cm y:4cm w:3cm h:1cm index:4</ATTRIBUTE>
 <ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
-<ATTRIBUTE name="TimeStamp" type="STRING">2011:12:07:14:03:34</ATTRIBUTE>
+<ATTRIBUTE name="TimeStamp" type="STRING">2011:11:28:14:27:11</ATTRIBUTE>
 </INSTANCE>
 <INSTANCE class="Object" id="obj.48303" name="fridge">
 <ATTRIBUTE name="Position" type="STRING">NODE x:15cm y:7.5cm w:4.4cm h:2.6cm index:5</ATTRIBUTE>

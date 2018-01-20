@@ -21,9 +21,10 @@ import java.io.IOException;
 /**
  * Created by suneth on 11/14/2017.
  */
-public class uciData {
-    public static void main(String[] args) throws ParserConfigurationException, SAXException, XPathExpressionException, TransformerException {
+public class uciData implements Areml {
+   // public static void main(String[] args) throws ParserConfigurationException, SAXException, XPathExpressionException, TransformerException {
 
+    public void uciDataFeed(String currentTime) throws ParserConfigurationException, SAXException, XPathExpressionException, TransformerException{
         BufferedReader br = null;
         FileReader fr = null;
 
@@ -41,43 +42,47 @@ public class uciData {
 
                 String filename = data[4];
 
-                File templateFolder = new File("./template");
-                File[] actionFiles = templateFolder.listFiles();
+                if(currentTime.equals(data[1])) {
 
-                String filepath = null;
-                for (File fil: actionFiles) {
-                    String fileWithExt = fil.getName();
-                    int lastPeriodPos = fileWithExt.lastIndexOf('.');
+                    File templateFolder = new File("./template");
+                    File[] actionFiles = templateFolder.listFiles();
 
-                    String fileWithoutExt = fileWithExt.substring(0, lastPeriodPos);
+                    String filepath = null;
+                    for (File fil : actionFiles) {
+                        String fileWithExt = fil.getName();
+                        int lastPeriodPos = fileWithExt.lastIndexOf('.');
 
-                    if (filename.equals(fileWithoutExt)) {
-                        filepath = "./template/" + fileWithExt;
-                       // new addRecognition(sCurrentLine);
+                        String fileWithoutExt = fileWithExt.substring(0, lastPeriodPos);
+
+                        if (filename.equals(fileWithoutExt)) {
+                            filepath = "./template/" + fileWithExt;
+                            // new addRecognition(sCurrentLine);
+                        }
                     }
+
+                    DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+                    DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+                    org.w3c.dom.Document doc = docBuilder.parse(filepath);
+                    String timeStamp = time;
+                    XPath xpath = XPathFactory.newInstance().newXPath();
+
+                    // change ELEMENTS
+                    String xPathExpression = "/ADOXML/MODELS/MODEL/INSTANCE[@class='PropertyPart']/ATTRIBUTE[@name='TimeStamp']/text()";
+                    NodeList nodes = (NodeList) xpath.evaluate(xPathExpression, doc, XPathConstants.NODESET);
+                    for (int idx = 0; idx < nodes.getLength(); idx++) {
+                        nodes.item(idx).setTextContent(timeStamp);
+                    }
+
+                    // write the content into xml file
+                    TransformerFactory transformerFactory = TransformerFactory.newInstance();
+                    Transformer transformer = transformerFactory.newTransformer();
+                    DOMSource source = new DOMSource(doc);
+                    StreamResult result = new StreamResult(new File(filepath));
+                    transformer.transform(source, result);
+
+                    new readInputData().readdata(filepath);
+
                 }
-
-                DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-                DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-                org.w3c.dom.Document doc = docBuilder.parse(filepath);
-                String timeStamp = time;
-                XPath xpath = XPathFactory.newInstance().newXPath();
-
-                // change ELEMENTS
-                String xPathExpression = "/ADOXML/MODELS/MODEL/INSTANCE[@class='PropertyPart']/ATTRIBUTE[@name='TimeStamp']/text()";
-                NodeList nodes = (NodeList) xpath.evaluate(xPathExpression, doc, XPathConstants.NODESET);
-                for (int idx = 0; idx < nodes.getLength(); idx++) {
-                    nodes.item(idx).setTextContent(timeStamp);
-                }
-
-                // write the content into xml file
-                TransformerFactory transformerFactory = TransformerFactory.newInstance();
-                Transformer transformer = transformerFactory.newTransformer();
-                DOMSource source = new DOMSource(doc);
-                StreamResult result = new StreamResult(new File(filepath));
-                transformer.transform(source, result);
-
-                new readInputData().readdata(filepath);
 
             }
         } catch (IOException e) {
