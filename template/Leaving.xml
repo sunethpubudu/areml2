@@ -73,7 +73,7 @@ CHAPTER "Technical"
 <ATTRIBUTE name="Position" type="STRING">NODE x:12.5cm y:5.5cm w:3cm h:1cm index:9</ATTRIBUTE>
 <ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
-<ATTRIBUTE name="TimeStamp" type="STRING">2011:12:10:20:25:40</ATTRIBUTE>
+<ATTRIBUTE name="TimeStamp" type="STRING">2011:12:05:17:17:07</ATTRIBUTE>
 </INSTANCE>
 <CONNECTOR class="Participating" id="con.48407">
 <FROM class="Object" instance="maindoor"/>

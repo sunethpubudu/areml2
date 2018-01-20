@@ -53,6 +53,7 @@ public class uciData {
 
                     if (filename.equals(fileWithoutExt)) {
                         filepath = "./template/" + fileWithExt;
+                       // new addRecognition(sCurrentLine);
                     }
                 }
 

@@ -62,7 +62,7 @@ CHAPTER "Technical"
 <ATTRIBUTE name="Position" type="STRING">NODE x:14cm y:4cm w:3cm h:1cm index:4</ATTRIBUTE>
 <ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
-<ATTRIBUTE name="TimeStamp" type="STRING">2011:12:11:12:02:56</ATTRIBUTE>
+<ATTRIBUTE name="TimeStamp" type="STRING">2011:12:07:11:05:51</ATTRIBUTE>
 </INSTANCE>
 <INSTANCE class="Object" id="obj.48273" name="shower">
 <ATTRIBUTE name="Position" type="STRING">NODE x:11cm y:9cm w:4.4cm h:2.6cm index:5</ATTRIBUTE>
