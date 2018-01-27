@@ -62,7 +62,7 @@ CHAPTER "Technical"
 <ATTRIBUTE name="Position" type="STRING">NODE x:10.5cm y:4.5cm w:3cm h:1cm index:4</ATTRIBUTE>
 <ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
-<ATTRIBUTE name="TimeStamp" type="STRING">2011:03:24:13:17:06</ATTRIBUTE>
+<ATTRIBUTE name="TimeStamp" type="STRING">2011:05:30:21:52:25</ATTRIBUTE>
 </INSTANCE>
 <INSTANCE class="ConnectionPart" id="obj.47854" name="ConnectionPart-46929">
 <ATTRIBUTE name="Position" type="STRING">NODE x:14cm y:4.5cm w:3cm h:1cm index:5</ATTRIBUTE>
@@ -85,7 +85,7 @@ CHAPTER "Technical"
 <ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Location" type="STRING"/>
 </INSTANCE>
-<INSTANCE class="Person" id="obj.47866" name="f1">
+<INSTANCE class="Person" id="obj.47866" name="m2">
 <ATTRIBUTE name="Position" type="STRING">NODE x:9.5cm y:16.5cm w:4.34cm h:2.5cm index:9</ATTRIBUTE>
 <ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Age" type="INTEGER">0</ATTRIBUTE>

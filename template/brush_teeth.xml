@@ -75,7 +75,7 @@ CHAPTER "Technical"
 <ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Location" type="STRING">bathroom</ATTRIBUTE>
 </INSTANCE>
-<INSTANCE class="Person" id="obj.46827" name="f1">
+<INSTANCE class="Person" id="obj.46827" name="m2">
 <ATTRIBUTE name="Position" type="STRING">NODE x:11cm y:13cm w:4.34cm h:2.5cm index:7</ATTRIBUTE>
 <ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Age" type="INTEGER">0</ATTRIBUTE>

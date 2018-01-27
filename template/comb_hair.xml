@@ -54,7 +54,7 @@ CHAPTER "Technical"
 <ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
 <ATTRIBUTE name="TimeStamp" type="STRING"/>
 </INSTANCE>
-<INSTANCE class="Person" id="obj.47794" name="f1">
+<INSTANCE class="Person" id="obj.47794" name="m2">
 <ATTRIBUTE name="Position" type="STRING">NODE x:10cm y:13cm w:4.34cm h:2.5cm index:3</ATTRIBUTE>
 <ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Age" type="INTEGER">0</ATTRIBUTE>
@@ -74,7 +74,7 @@ CHAPTER "Technical"
 <ATTRIBUTE name="Position" type="STRING">NODE x:13.5cm y:4.5cm w:3cm h:1cm index:6</ATTRIBUTE>
 <ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Description" type="INTEGER">0</ATTRIBUTE>
-<ATTRIBUTE name="TimeStamp" type="STRING">2011:03:24:10:26:33</ATTRIBUTE>
+<ATTRIBUTE name="TimeStamp" type="STRING">2011:05:30:21:57:03</ATTRIBUTE>
 </INSTANCE>
 <INSTANCE class="ThingPart" id="obj.47806" name="ThingPart-46881">
 <ATTRIBUTE name="Position" type="STRING">NODE x:9.5cm y:4.5cm w:3cm h:1cm index:7</ATTRIBUTE>

@@ -79,7 +79,7 @@ CHAPTER "Technical"
 <ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Location" type="STRING"/>
 </INSTANCE>
-<INSTANCE class="Person" id="obj.48042" name="f1">
+<INSTANCE class="Person" id="obj.48042" name="m2">
 <ATTRIBUTE name="Position" type="STRING">NODE x:13cm y:17.5cm w:4.34cm h:2.5cm index:8</ATTRIBUTE>
 <ATTRIBUTE name="External tool coupling" type="STRING"/>
 <ATTRIBUTE name="Age" type="INTEGER">0</ATTRIBUTE>

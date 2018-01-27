@@ -27,6 +27,7 @@ public class uciData implements Areml {
     public void uciDataFeed(String currentTime) throws ParserConfigurationException, SAXException, XPathExpressionException, TransformerException{
         BufferedReader br = null;
         FileReader fr = null;
+        final String setText = "\033[31m";
 
         try {
             //br = new BufferedReader(new FileReader(FILENAME));
@@ -80,6 +81,7 @@ public class uciData implements Areml {
                     StreamResult result = new StreamResult(new File(filepath));
                     transformer.transform(source, result);
 
+                    System.out.print(setText);
                     new readInputData().readdata(filepath);
 
                 }

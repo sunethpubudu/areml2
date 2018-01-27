@@ -3,12 +3,13 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.xpath.XPathExpressionException;
+import java.io.IOException;
 
 /**
  * Created by suneth on 1/20/2018.
  */
 public class testMain {
-    public static void main(String[] args) throws ParserConfigurationException, SAXException, XPathExpressionException, TransformerException {
+    public static void main(String[] args) throws ParserConfigurationException, SAXException, XPathExpressionException, TransformerException, IOException {
        //
 
         int hrs;
@@ -27,9 +28,13 @@ public class testMain {
                     se = (sec <10) ?  "0"+sec : String.valueOf(sec);
 
                     String time = (hr + ":" + mn + ":" + se);
+                   // System.out.println(time);
                     new uciData().uciDataFeed(time);
+                    new vkData().vkDataFeed(time);
+                    new bsdata().bsdataFeed(time);
                 }
             }
         }
+
     }
 }
