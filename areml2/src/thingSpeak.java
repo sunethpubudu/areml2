@@ -1,20 +1,20 @@
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.xpath.XPathExpressionException;
 import java.io.*;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Created by suneth on 1/27/2018.
  */
 public class thingSpeak {
 
-    public static void main(String[] args) throws IOException, JSONException {
+    public static void main(String[] args) throws IOException, JSONException, ParserConfigurationException, SAXException, XPathExpressionException, TransformerException {
 
         while (true) {
                 String url1 = "https://api.thingspeak.com/channels/241847/fields/1/last.json";
@@ -45,7 +45,7 @@ public class thingSpeak {
         }
     }
 
-    public static void actionListener(String url, int no) throws IOException, JSONException {
+    public static void actionListener(String url, int no) throws IOException, JSONException, ParserConfigurationException, SAXException, XPathExpressionException, TransformerException {
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
@@ -75,10 +75,84 @@ public class thingSpeak {
             int value = json.getInt("field1");
 
             String dateT = json.getString("created_at");
-            System.out.println(value+" "+no+" -- "+dateT);
 
+            int line = 0;
+
+            BufferedReader br = new BufferedReader(new FileReader("./actionFiles/" + no + ".txt"));
+            line = (int) Double.parseDouble(br.readLine());
+
+            if (!(value == line)) { //success
+                FileWriter fw = new FileWriter("./actionFiles/" + no + ".txt");
+                BufferedWriter bw = new BufferedWriter(fw);
+                bw.write(String.valueOf(value));
+                bw.close();
+
+                if(no==1) {
+                    if (value == 1.0) {
+                        action = "Open_main_door";
+                    } else {
+                        action = "Close_main_door";
+                    }
+                } else if(no==2) {
+                    if (value == 1.0) {
+                        action = "Main_light_on";
+                    } else {
+                        action = "Main_light_off";
+                    }
+                } else if(no==3) {
+                        if (value == 1.0) {
+                            action = "Herd_on";
+                        } else {
+                            action = "Herd_off";
+                        }
+                } else if(no==4) {
+                        if (value == 1.0) {
+                            action = "Open_refrigerator";
+                        } else {
+                            action = "Close_refrigerator";
+                        }
+                } else if(no==5) {
+                        if (value == 1.0) {
+                            action = "Microwave_on";
+                        } else {
+                            action = "Microwave_off";
+                        }
+                } else if(no==6) {
+                        if (value == 1.0) {
+                            action = "Open_tap";
+                        } else {
+                            action = "Close_tap";
+                        }
+                } else if(no==7) {
+                        if (value == 1.0) {
+                            action = "Sit_on_sofa";
+                        } else {
+                            action = "Get_off_sofa";
+                        }
+                } else if(no==8) {
+                        if (value == 1.0) {
+                            action = "TV_on";
+                        } else {
+                            action = "TV_off";
+                        }
+                } else if(no==9) {
+                        if (value == 1.0) {
+                            action = "Table_light_on";
+                        } else {
+                            action = "Table_light_off";
+                        }
+                } else if(no==10) {
+                        if (value == 1.0) {
+                            action = "Sit_on_chair";
+                        } else {
+                            action = "Get_off_chair";
+                        }
+                }
+                new thingSpeakModel(action, dateT);
+              //  System.out.println(action);
+            }
         }
-
+        con.disconnect();
     }
 
 }
