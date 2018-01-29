@@ -14,8 +14,8 @@ import java.net.URL;
  */
 public class thingSpeak {
 
-    public static void main(String[] args) throws IOException, JSONException, ParserConfigurationException, SAXException, XPathExpressionException, TransformerException {
-
+  //  public static void main(String[] args) throws IOException, JSONException, ParserConfigurationException, SAXException, XPathExpressionException, TransformerException {
+    public thingSpeak() throws IOException, JSONException, ParserConfigurationException, SAXException, XPathExpressionException, TransformerException {
         while (true) {
                 String url1 = "https://api.thingspeak.com/channels/241847/fields/1/last.json";
                 actionListener(url1,1);
@@ -37,6 +37,10 @@ public class thingSpeak {
                 actionListener(url9,9);
                 String url10 = "https://api.thingspeak.com/channels/412773/fields/1/last.json";
                 actionListener(url10,10);
+                String url11 = "https://api.thingspeak.com/channels/413155/fields/1/last.json";
+                actionListener(url11,11);
+                String url12 = "https://api.thingspeak.com/channels/413253/fields/1/last.json";
+                actionListener(url12,12);
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
@@ -147,6 +151,10 @@ public class thingSpeak {
                         } else {
                             action = "Get_off_chair";
                         }
+                } else if(no==11) {
+                       action = "Indoor_temperature";
+                } else if(no==12) {
+                       action = "Outdoor_temperature";
                 }
                 new thingSpeakModel(action, dateT);
               //  System.out.println(action);

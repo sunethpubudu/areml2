@@ -14,6 +14,7 @@ import java.io.*;
 public class test {
     public static void main(String[] args) throws IOException, InterruptedException, ParserConfigurationException, SAXException, XPathExpressionException, TransformerException {
 
+    //   public test() throws IOException, InterruptedException, ParserConfigurationException, SAXException, XPathExpressionException, TransformerException {
         String videoRead=null;
         String readOutside=null;
         BufferedReader br = null;
@@ -53,7 +54,7 @@ public class test {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-            } Thread.sleep(4000);
+            } Thread.sleep(1000);
         }
     }
 
